@@ -1,0 +1,227 @@
+[
+  {
+    "id": "df6040f0-048d-4b0b-b504-d33bfb9e27f8",
+    "question": "Explain recursion in simple terms",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "deepseek"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "Sure! Recursion is a concept in computer science and mathematics where a function or algorithm calls itself repeatedly until a certain condition is met. It's like a set of instructions that keeps repeating itself, but each time it does, it works on a smaller part of the problem.\n\nImagine you have a stack of plates, and you want to clean them. Instead of cleaning them one by one, you could use a recursive approach:\n\n1. Take the top plate and clean it.\n2. Put it aside.\n3. Now you have a smaller stack of plates. Repeat the process from step 1.\n\nYou keep doing this until you have no more plates to clean. Each time you clean a plate, you're solving a smaller version of the same problem.\n\nIn programming, a recursive function does something similar. It solves a problem by breaking it down into smaller and smaller sub-problems until it reaches a simple case that can be solved directly. Here’s a simple example in pseudocode:\n\n```pseudocode\nfunction cleanPlates(plates):\n    if plates is empty:\n        return\n    else:\n        clean top plate\n        cleanPlates(remaining plates)\n```\n\nIn this example, the function `cleanPlates` calls itself with a smaller set of plates each time, until there are no more plates left to clean.",
+        "status": "success",
+        "timestamp": "2026-04-14T21:04:36.145Z",
+        "latencyMs": 2621,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "**Recursion in Simple Terms**\n\nRecursion is a programming technique where a function calls itself repeatedly until it reaches a base case that stops the recursion.\n\n**Think of a Stack of Plates**\n\nImagine you have a stack of plates that you need to count. Each time you remove a plate, you put the previous plate at the top of the stack. You keep doing this until you reach the bottom plate (the base case).\n\n- You start with a stack of plates and the ability to remove the top plate.\n- You remove one plate (function call) and count it.\n- Then, you remove another plate (nested function call) and count it.\n- You continue removing plates and counting until you reach the bottom plate.\n\n**The Recursion Process**\n\nHere's the step-by-step process:\n\n1.  **Base Case:** Identify a condition where the function should stop calling itself. In our example, it's when we reach the bottom plate.\n2.  **Function Call:** The function calls itself with a smaller input or a different condition. This creates a new stack frame with a reduced input.\n3.  **Counting:** The function counts the current plate.\n4.  **Recursion:** The function calls itself again with a smaller input or a different condition.\n5.  **Stack Unwinding:** As the function calls itself, a new stack frame is created for each recursive call. When the base case is reached, the stack frames are unwound, and the function returns counting the total number of plates.\n\n**Example: Factorial Function**\n\nHere's an example of a recursive function in Python that calculates the factorial of a number:\n\n```python\ndef factorial(n):\n    if n == 0:  # base case\n        return 1\n    else:\n        return n * factorial(n-1)  # recursive call\n```\n\nWhen you call `factorial(5)`, the function will call itself with decreasing values of `n` until it reaches 0:\n\n1.  `factorial(5)` -> `5 * factorial(4)`\n2.  `factorial(4)` -> `4 * factorial(3)`\n3.  `factorial(3)` -> `3 * factorial(2)`\n4.  `factorial(2)` -> `2 * factorial(1)`\n5.  `factorial(1)` -> `1 * factorial(0)`\n6.  `factorial(0)` returns 1 (base case)\n\nThe function unwinds the stack, returning",
+        "status": "success",
+        "timestamp": "2026-04-14T21:04:36.146Z",
+        "latencyMs": 1245,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Of course! Let's explain recursion in simple terms.\n\n### The Shortest Explanation\n\n**Recursion is when a thing is defined in terms of itself or a thing of its own kind.**\n\nThink of it as a **\"Do this task, and if you haven't finished, do the same smaller task again\"** process.\n\n---\n\n### The Classic Example: Russian Nesting Dolls\n\nImagine you have a set of **Russian nesting dolls**. You open the biggest doll, and inside is a slightly smaller doll. You open that one, and inside is an even smaller one. You keep opening them until you find the very smallest, solid doll that can't be opened any further.\n\n*   **The \"Recursive Call\":** \"To open a doll, you must first open the doll inside of it.\"\n*   **The \"Base Case\":** The smallest, solid doll (the one that can't be opened). This is the final step that stops the process from going on forever.\n\n---\n\n### The Key Ingredients of Recursion\n\nFor recursion to work and not go on forever (which would crash your program), it **must** have two parts:\n\n1.  **The Base Case:** This is the simplest, smallest possible version of the problem that can be solved **immediately, without any more recursion**. It's the \"we're done!\" condition.\n2.  **The Recursive Case:** This is the part where the function calls **itself**, but with a slightly smaller or simpler piece of the original problem. Each call should move you closer to the base case.\n\n---\n\n### A Simple Real-World Code Example: Counting Down\n\nLet's say you want to count down from a number (like 5) to 1.\n\n```python\ndef countdown(n):\n    # 1. Base Case: When do we stop?\n    if n <= 0:\n        print(\"Blastoff!\")\n    else:\n        # 2. Recursive Case: Do the work and call myself with a simpler problem.\n        print(n)\n        countdown(n - 1) # Call the function again, but with n-1\n\n# Let's run it!\ncountdown(5)\n```\n\n**What happens step-by-step:**\n\n1.  `countdown(5)` prints `5`, then calls `countdown(4)`\n2.  `countdown(4)` prints `4`, then calls `countdown(3)`\n3.  `countdown(3)` prints `3`, then calls",
+        "status": "success",
+        "timestamp": "2026-04-14T21:04:36.146Z",
+        "latencyMs": 11967,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-14T21:04:48.114Z"
+  },
+  {
+    "id": "b7888263-e870-4d03-a4e7-61894df6c3c4",
+    "question": "Explain the difference between a stack and a queue in programming.",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "deepseek"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "Certainly! In programming, both stacks and queues are fundamental data structures used to manage collections of elements. However, they operate under different principles and are used for different purposes.\n\n### Stack\nA stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack (pushed) is the first one to be removed (popped). Stacks are often visualized as a stack of plates, where you can only add or remove a plate from the top.\n\n#### Key Operations:\n- **Push**: Adds an element to the top of the stack.\n- **Pop**: Removes the top element from the stack.\n- **Peek**: Returns the top element without removing it.\n- **IsEmpty**: Checks if the stack is empty.\n\n#### Use Cases:\n- Function call stack in programming languages.\n- Backtracking algorithms (e.g., solving mazes).\n- Expression evaluation (e.g., parsing mathematical expressions).\n\n### Queue\nA queue, on the other hand, follows the First In, First Out (FIFO) principle. This means that the first element added to the queue (enqueued) is the first one to be removed (dequeued). Queues are often visualized as a line of people waiting for a service, where the person at the front of the line is served first.\n\n#### Key Operations:\n- **Enqueue**: Adds an element to the end of the queue.\n- **Dequeue**: Removes the element from the front of the queue.\n- **Front**: Returns the front element without removing it.\n- **IsEmpty**: Checks if the queue is empty.\n\n#### Use Cases:\n- Managing tasks in a printer or operating system.\n- Handling requests in a web server.\n- Breadth-first search in graph traversal.\n\n### Key Differences\n1. **Order of Operations**:\n   - **Stack**: Last In, First Out (LIFO).\n   - **Queue**: First In, First Out (FIFO).\n\n2. **Use Cases**:\n   - **Stack**: Ideal for scenarios where the last added item needs to be accessed or removed first.\n   - **Queue**: Suitable for scenarios where items are processed in the order they were received.\n\n3. **Implementation**:\n   - Both can be implemented using arrays or linked lists, but the specific operations (push/pop for stack, enqueue/dequeue for queue) determine the underlying structure.\n\nUnderstanding these differences is crucial for choosing the right data structure for a given problem, as it can significantly impact the efficiency",
+        "status": "success",
+        "timestamp": "2026-04-14T21:01:12.333Z",
+        "latencyMs": 4445,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "**Stack vs Queue: A Programming Perspective**\n\nIn programming, a stack and a queue are two fundamental data structures that allow you to store and retrieve items in a particular order. While they share some similarities, they have distinct differences in terms of their structure, operations, and usage.\n\n**Stack**\n\nA stack is a Last-In-First-Out (LIFO) data structure, meaning that the last item added to the stack is the first one to be removed. You can think of it like a stack of plates:\n\n1. Push a plate onto the stack (add a new item).\n2. Pop a plate from the stack (remove an item from the top).\n\nHere's an example implementation in Python:\n```python\nclass Stack:\n    def __init__(self):\n        self.items = []\n\n    def push(self, item):\n        self.items.append(item)\n\n    def pop(self):\n        if not self.is_empty():\n            return self.items.pop()\n        return None\n\n    def is_empty(self):\n        return len(self.items) == 0\n```\n**Queue**\n\nA queue is a First-In-First-Out (FIFO) data structure, meaning that the first item added to the queue is the first one to be removed. You can think of it like a line of people waiting for a bus:\n\n1. Enqueue a person (add a new item to the back of the line).\n2. Dequeue a person (remove an item from the front of the line).\n\nHere's an example implementation in Python:\n```python\nclass Queue:\n    def __init__(self):\n        self.items = []\n\n    def enqueue(self, item):\n        self.items.append(item)\n\n    def dequeue(self):\n        if not self.is_empty():\n            return self.items.pop(0)\n        return None\n\n    def is_empty(self):\n        return len(self.items) == 0\n```\n**Key differences**\n\nHere are the main differences between a stack and a queue:\n\n* **Order of removal**: Stack (LIFO), Queue (FIFO)\n* **Operation names**: Stack (push/pop), Queue (enqueue/dequeue)\n* **Item removal**: Stack (removes from top), Queue (removes from front)\n\n**Example use cases**\n\n* Stack:\n\t+ Evaluating postfix expressions\n\t+ Parsing nested syntax (e.g., XML, HTML)\n\t+ Implementing recursive functions\n* Queue:\n\t+ Job scheduling\n\t+ Network packets processing\n\t+ Implementing breadth-first search algorithms\n\nIn summary, while both stacks and queues",
+        "status": "success",
+        "timestamp": "2026-04-14T21:01:12.334Z",
+        "latencyMs": 761,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Of course! This is a fundamental concept in programming. Here’s a clear explanation of the difference between a stack and a queue.\n\n### The Core Idea: LIFO vs. FIFO\n\nThe main difference boils down to the **order in which elements are removed**.\n\n*   **Stack:** **LIFO** - **L**ast **I**n, **F**irst **O**ut. The last item you add is the first one you can remove. Think of a **stack of plates**; you add a plate to the top and take a plate from the top.\n*   **Queue:** **FIFO** - **F**irst **I**n, **F**irst **O**ut. The first item you add is the first one you can remove. Think of a **line of people** (a queue); the first person to join the line is the first person to be served and leave.\n\n---\n\n### Stack (LIFO - Like a Stack of Plates)\n\nA stack is a collection of elements with two principal operations:\n1.  **Push:** Add an element to the top.\n2.  **Pop:** Remove the element from the top.\n\nBecause you only interact with the top, the last element added (`Push`ed) is always the first one to be removed (`Pop`ped).\n\n**Analogy:** A **Stack of Plates** or a **Pile of Books**. You add and remove items from the top.\n\n**Visualization:**\n```\nPush \"C\" -> | C |  (Top)\nPush \"B\" -> | B |  (Top)\nPush \"A\" -> | A |  (Top)\n            | B |\n            | C |\n            -----\n\nPop() -> Returns \"A\"\nNew Stack: | B |  (Top)\n           | C |\n           -----\n```\n**Common Use Cases:**\n*   **Undo/Redo functionality:** Each action (like typing a word) is `push`ed onto a stack. To undo, you `pop` the last action.\n*   **Function Call Management:** Programming languages use a \"call stack\" to keep track of function calls, local variables, and return addresses.\n*   **Back/Forward Navigation in Browsers:** The back button `pop`s the current URL off a stack to go to the previous one.\n*   **Syntax Parsing:** Checking for matching brackets `({[]})` in code is a classic stack problem.\n\n---\n\n### Queue",
+        "status": "success",
+        "timestamp": "2026-04-14T21:01:12.335Z",
+        "latencyMs": 25489,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-14T21:01:37.826Z"
+  },
+  {
+    "id": "cf16fbd6-8d26-4bda-a162-616d45437db2",
+    "question": "what is ai",
+    "selectedModels": [
+      "qwen",
+      "llama"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "AI, or Artificial Intelligence, refers to the simulation of human intelligence in machines that are programmed to think, learn, and perform tasks that typically require human intelligence. This can include tasks such as visual perception, speech recognition, decision-making, and language translation.\n\nKey aspects of AI include:\n\n1. **Machine Learning**: A subset of AI that involves algorithms that can learn from and make predictions on data without being explicitly programmed. This is often used for tasks like recommendation systems, fraud detection, and image recognition.\n\n2. **Deep Learning**: A type of machine learning that uses neural networks with multiple layers to learn and make decisions. It's particularly effective for complex tasks like image and speech recognition.\n\n3. **Natural Language Processing (NLP)**: This involves the interaction between computers and humans using natural language. It's used in applications like chatbots, language translation, and sentiment analysis.\n\n4. **Robotics**: The use of physical robots that can perform tasks autonomously or with human assistance, often using AI to make decisions and interact with their environment.\n\n5. **Expert Systems**: These are designed to solve complex problems in a specific domain by using knowledge and reasoning to provide solutions.\n\n6. **Computer Vision**: This involves the ability of machines to interpret and understand the visual world, often used in applications like facial recognition and autonomous vehicles.\n\nAI has a wide range of applications across various industries, including healthcare, finance, transportation, and entertainment, among others. It's a rapidly evolving field with ongoing advancements and new applications being developed all the time.",
+        "status": "success",
+        "timestamp": "2026-04-14T20:34:12.179Z",
+        "latencyMs": 3215,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. The term can also be applied to any machine that exhibits traits associated with a human mind such as learning and problem-solving.\n\nAI technology is based on the principle of creating algorithms that can process data, identify patterns, and make decisions based on that data. This allows AI systems to perform tasks that would normally require human intelligence, such as speech recognition, image recognition, and decision-making.\n\nThere are several key areas of AI research and application:\n\n1. **Machine Learning**: This is a type of AI that enables machines to learn from data and improve their performance over time. Machine learning algorithms can be trained on large datasets to recognize patterns and make predictions or decisions.\n2. **Natural Language Processing (NLP)**: This is a subset of AI that deals with the interaction between computers and humans using natural language. NLP allows computers to understand and generate text or speech, enabling applications such as virtual assistants, language translation, and sentiment analysis.\n3. **Computer Vision**: This is the ability of computers to interpret and understand visual data from images or videos. Computer vision applications include image recognition, object detection, and facial recognition.\n4. **Robotics**: This is the combination of AI, machine learning, and robotics to create intelligent systems that can interact with and manipulate their environment. Robotics applications include autonomous vehicles, drones, and industrial robots.\n\nThe benefits of AI include:\n\n1. **Improved accuracy**: AI can perform tasks with high accuracy and speed, reducing the likelihood of human error.\n2. **Increased efficiency**: AI can automate repetitive tasks, freeing up human time for more complex and creative work.\n3. **Enhanced decision-making**: AI can analyze large datasets and identify patterns that humans may miss, enabling better decision-making.\n4. **Improved customer experience**: AI-powered applications can provide personalized experiences, answer customer inquiries, and offer support 24/7.\n\nHowever, AI also raises concerns about:\n\n1. **Job displacement**: The automation of tasks and jobs may lead to job displacement, which could have significant social and economic impacts.\n2. **Bias and fairness**: AI systems can perpetuate biases and discrimination if the data used to train them is biased or incomplete.\n3. **Security and privacy**: AI systems can be vulnerable to cyber attacks and data breaches, which could compromise sensitive information.\n4. **Accountability and transparency**: AI systems can be complex and difficult to understand, making it challenging to hold them accountable for their decisions",
+        "status": "success",
+        "timestamp": "2026-04-14T20:34:12.180Z",
+        "latencyMs": 834,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-14T20:34:15.395Z"
+  },
+  {
+    "id": "ae7c5387-458d-45fe-b0aa-3836a5cb1b5d",
+    "question": "What is 2+2? Answer briefly.",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "deepseek"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "2+2 equals 4.",
+        "status": "success",
+        "timestamp": "2026-04-14T20:30:03.463Z",
+        "latencyMs": 712,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "2 + 2 = 4.",
+        "status": "success",
+        "timestamp": "2026-04-14T20:30:03.464Z",
+        "latencyMs": 1739,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "4.",
+        "status": "success",
+        "timestamp": "2026-04-14T20:30:03.465Z",
+        "latencyMs": 1213,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-14T20:30:05.205Z"
+  },
+  {
+    "id": "a341dcbb-d06e-4d36-8cda-7a3278b70605",
+    "question": "What is 2+2?",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "mistral"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "2+2 equals 4.",
+        "status": "success",
+        "timestamp": "2026-04-14T20:24:58.391Z",
+        "latencyMs": 958,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T20:24:58.724Z",
+        "latencyMs": 332,
+        "error": "HF API error (400): {\"error\":{\"message\":\"The requested model 'meta-llama/Llama-3.2-3B-Instruct' is not supported by any provider you have enabled.\",\"type\":\"invalid_request_error\",\"param\":\"model\",\"code\":\"model_not_supported\"}}"
+      },
+      {
+        "model": "mistral",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T20:24:58.727Z",
+        "latencyMs": 334,
+        "error": "HF API error (400): {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-7B-Instruct-v0.3' is not a chat model.\",\"type\":\"invalid_request_error\",\"param\":\"model\",\"code\":\"model_not_supported\"}}"
+      }
+    ],
+    "createdAt": "2026-04-14T20:24:59.351Z"
+  },
+  {
+    "id": "4b67b81a-04b2-49a8-93fd-e2030fb41fd5",
+    "question": "hello\n",
+    "selectedModels": [
+      "qwen",
+      "llama"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T20:15:23.276Z",
+        "latencyMs": 339,
+        "error": "HF API error (410): {\"error\":\"https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead.\"}"
+      },
+      {
+        "model": "llama",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T20:15:23.277Z",
+        "latencyMs": 338,
+        "error": "HF API error (410): {\"error\":\"https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead.\"}"
+      }
+    ],
+    "createdAt": "2026-04-14T20:15:23.277Z"
+  },
+  {
+    "id": "249d309b-ca38-4a89-8c1d-7b4fead3868a",
+    "question": "What is 2+2?",
+    "selectedModels": [
+      "openai",
+      "gemini"
+    ],
+    "responses": [
+      {
+        "model": "openai",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T18:36:16.891Z",
+        "latencyMs": 564,
+        "error": "OpenAI API error: 401 - {\n    \"error\": {\n        \"message\": \"Incorrect API key provided: your_ope********here. You can find your API key at https://platform.openai.com/account/api-keys.\",\n        \"type\": \"invalid_request_error\",\n        \"param\": null,\n        \"code\": \"invalid_api_key\"\n    }\n}\n"
+      },
+      {
+        "model": "gemini",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T18:36:16.462Z",
+        "latencyMs": 134,
+        "error": "Gemini API error: 400 - {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"API key not valid. Please pass a valid API key.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"API_KEY_INVALID\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"service\": \"generativelanguage.googleapis.com\"\n        }\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.LocalizedMessage\",\n        \"locale\": \"en-US\",\n        \"message\": \"API key not valid. Please pass a valid API key.\"\n      }\n    ]\n  }\n}\n"
+      }
+    ],
+    "createdAt": "2026-04-14T18:36:16.892Z"
+  }
+]
