@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": "3ac137b5-90a8-4918-9712-7c60d7ea8e0a",
+    "question": "hi",
+    "selectedModels": [
+      "openai",
+      "gemini"
+    ],
+    "responses": [
+      {
+        "model": "openai",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T15:08:28.675Z",
+        "latencyMs": 616,
+        "error": "OpenAI API error: 401 - {\n    \"error\": {\n        \"message\": \"Incorrect API key provided: undefined. You can find your API key at https://platform.openai.com/account/api-keys.\",\n        \"type\": \"invalid_request_error\",\n        \"param\": null,\n        \"code\": \"invalid_api_key\"\n    }\n}\n"
+      },
+      {
+        "model": "gemini",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-14T15:08:28.199Z",
+        "latencyMs": 139,
+        "error": "Gemini API error: 400 - {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"API key not valid. Please pass a valid API key.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"API_KEY_INVALID\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"service\": \"generativelanguage.googleapis.com\"\n        }\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.LocalizedMessage\",\n        \"locale\": \"en-US\",\n        \"message\": \"API key not valid. Please pass a valid API key.\"\n      }\n    ]\n  }\n}\n"
+      }
+    ],
+    "createdAt": "2026-04-14T15:08:28.676Z"
+  }
+]

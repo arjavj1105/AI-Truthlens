@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { ComparisonRecord } from "@/lib/types";
 import { ResponseCard } from "@/components/ResponseCard";
+import { ModelRanking } from "@/components/ModelRanking";
 import { ArrowLeft, Loader2, AlertCircle } from "lucide-react";
 import Link from "next/link";
 
@@ -29,7 +30,7 @@ export default function HistoryDetailPage() {
         } else {
           setError(data.error || "Record not found");
         }
-      } catch (err: any) {
+      } catch {
         setError("Failed to fetch record details.");
       } finally {
         setLoading(false);
@@ -87,7 +88,7 @@ export default function HistoryDetailPage() {
         <div className="bg-gray-100 dark:bg-gray-900/50 p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-inner">
           <h3 className="text-xs font-semibold uppercase text-gray-500 mb-2 tracking-wider">Prompt</h3>
           <p className="text-gray-800 dark:text-gray-200 italic font-medium leading-relaxed">
-            "{record.question}"
+            &quot;{record.question}&quot;
           </p>
         </div>
 
@@ -96,6 +97,9 @@ export default function HistoryDetailPage() {
             <ResponseCard key={idx} response={response} />
           ))}
         </div>
+
+        {/* Model Ranking & Scores */}
+        <ModelRanking responses={record.responses} />
         
       </section>
     </div>

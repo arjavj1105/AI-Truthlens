@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CompareForm } from "@/components/CompareForm";
 import { ResponseCard } from "@/components/ResponseCard";
+import { ModelRanking } from "@/components/ModelRanking";
 import { ComparisonRecord } from "@/lib/types";
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
           
           <div className="bg-gray-100 dark:bg-gray-900/50 p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-inner">
             <h3 className="text-xs font-semibold uppercase text-gray-500 mb-2">Prompt</h3>
-            <p className="text-gray-800 dark:text-gray-300 italic font-medium">"{currentResult.question}"</p>
+            <p className="text-gray-800 dark:text-gray-300 italic font-medium">&quot;{currentResult.question}&quot;</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
@@ -45,6 +46,9 @@ export default function Home() {
               <ResponseCard key={idx} response={response} />
             ))}
           </div>
+
+          {/* Model Ranking & Scores */}
+          <ModelRanking responses={currentResult.responses} />
         </section>
       )}
 

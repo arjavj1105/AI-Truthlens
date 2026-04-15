@@ -11,7 +11,7 @@ interface CompareFormProps {
 
 export function CompareForm({ onSuccess }: CompareFormProps) {
   const [question, setQuestion] = useState("");
-  const [selectedModels, setSelectedModels] = useState<Provider[]>(["openai", "gemini"]);
+  const [selectedModels, setSelectedModels] = useState<Provider[]>(["qwen", "llama"]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -43,8 +43,9 @@ export function CompareForm({ onSuccess }: CompareFormProps) {
 
       onSuccess(data.record);
       // Optional: Clear question after successful send? Or keep context. Let's keep context for now.
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

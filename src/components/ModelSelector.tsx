@@ -9,9 +9,9 @@ interface ModelSelectorProps {
 }
 
 const AVAILABLE_MODELS: { id: Provider; label: string; description: string }[] = [
-  { id: "openai", label: "OpenAI GPT-4o-mini", description: "Fast, everyday model by OpenAI" },
-  { id: "gemini", label: "Google Gemini 1.5 Flash", description: "Google's fast multimodal model" },
-  { id: "groq", label: "Groq LLaMA-3.1 8B", description: "Meta's LLaMA via Groq's high-speed inference" },
+  { id: "qwen", label: "Qwen 2.5 7B", description: "Alibaba's efficient instruction-tuned model" },
+  { id: "llama", label: "Llama 3.1 8B", description: "Meta's popular open-source instruction model" },
+  { id: "deepseek", label: "DeepSeek V3", description: "DeepSeek's powerful reasoning model" },
 ];
 
 export function ModelSelector({ selectedModels, onChange }: ModelSelectorProps) {
@@ -25,13 +25,14 @@ export function ModelSelector({ selectedModels, onChange }: ModelSelectorProps) 
 
   return (
     <div className="space-y-4">
-      <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wider">Select Models (Min 2)</h3>
+      <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wider">Select Hugging Face Models (Min 2)</h3>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {AVAILABLE_MODELS.map((model) => {
           const isSelected = selectedModels.includes(model.id);
           return (
             <button
               key={model.id}
+              type="button"
               onClick={() => toggleModel(model.id)}
               className={cn(
                 "p-4 rounded-xl border-2 text-left transition-all duration-200",

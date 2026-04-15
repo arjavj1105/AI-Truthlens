@@ -11,7 +11,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     }
 
     return NextResponse.json({ success: true, record }, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Fetch record error:", error);
     return NextResponse.json(
       { error: "Failed to fetch record." },

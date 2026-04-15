@@ -1,4 +1,4 @@
-export type Provider = "openai" | "gemini" | "groq";
+export type Provider = "qwen" | "llama" | "deepseek";
 
 export interface ModelResponse {
   model: Provider;

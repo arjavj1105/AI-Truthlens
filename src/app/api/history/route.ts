@@ -7,7 +7,7 @@ export async function GET() {
   try {
     const history = await getHistory();
     return NextResponse.json({ success: true, history }, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Fetch history error:", error);
     return NextResponse.json(
       { error: "Failed to fetch history." },

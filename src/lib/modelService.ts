@@ -1,11 +1,19 @@
 import { ModelResponse, Provider } from "./types";
 
-const TIMEOUT_MS = 15000;
+const TIMEOUT_MS = 30000;
+const HF_BASE_URL = "https://router.huggingface.co/v1/chat/completions";
+
+/** Model IDs mapped to each provider */
+const MODEL_MAP: Record<Provider, string> = {
+  qwen: "Qwen/Qwen2.5-7B-Instruct",
+  llama: "meta-llama/Llama-3.1-8B-Instruct",
+  deepseek: "deepseek-ai/DeepSeek-V3",
+};
 
 async function fetchWithTimeout(url: string, options: RequestInit): Promise<Response> {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  
+
   try {
     const response = await fetch(url, {
       ...options,
@@ -17,155 +25,83 @@ async function fetchWithTimeout(url: string, options: RequestInit): Promise<Resp
   }
 }
 
-async function callOpenAI(prompt: string): Promise<ModelResponse> {
+/**
+ * Call a model via the Hugging Face Router (OpenAI-compatible chat completions endpoint).
+ */
+async function callHuggingFace(
+  modelId: string,
+  provider: Provider,
+  prompt: string
+): Promise<ModelResponse> {
   const start = Date.now();
+  const timestamp = new Date().toISOString();
+
   try {
-    const res = await fetchWithTimeout('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
+    const apiKey = process.env.HF_TOKEN;
+    if (!apiKey) {
+      throw new Error("HF_TOKEN is missing. Please add it to your .env file.");
+    }
+
+    const res = await fetchWithTimeout(HF_BASE_URL, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [{ role: 'user', content: prompt }]
-      })
+        model: modelId,
+        messages: [{ role: "user", content: prompt }],
+        max_tokens: 512,
+      }),
     });
-    
+
     const latencyMs = Date.now() - start;
-    const timestamp = new Date().toISOString();
 
     if (!res.ok) {
       const errorText = await res.text();
-      throw new Error(`OpenAI API error: ${res.status} - ${errorText}`);
+      throw new Error(`HF API error (${res.status}): ${errorText}`);
     }
 
+    // OpenAI-compatible response shape
     const data = await res.json();
+    const answer =
+      data.choices?.[0]?.message?.content ?? "No response content.";
+
     return {
-      model: "openai",
-      answer: data.choices?.[0]?.message?.content || "No response content.",
+      model: provider,
+      answer: answer.trim(),
       status: "success",
       timestamp,
       latencyMs,
-      error: null
+      error: null,
     };
+  } catch (error: unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : String(error);
+    const isTimeout =
+      error instanceof Error && error.name === "AbortError";
 
-  } catch (error: any) {
     return {
-      model: "openai",
+      model: provider,
       answer: "",
       status: "error",
       timestamp: new Date().toISOString(),
       latencyMs: Date.now() - start,
-      error: error.name === 'AbortError' ? 'Timeout exceeded' : error.message
-    };
-  }
-}
-
-async function callGemini(prompt: string): Promise<ModelResponse> {
-  const start = Date.now();
-  try {
-    const apiKey = process.env.GEMINI_API_KEY;
-    const res = await fetchWithTimeout(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-      })
-    });
-    
-    const latencyMs = Date.now() - start;
-    const timestamp = new Date().toISOString();
-
-    if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`Gemini API error: ${res.status} - ${errorText}`);
-    }
-
-    const data = await res.json();
-    const answer = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response content.";
-    
-    return {
-      model: "gemini",
-      answer,
-      status: "success",
-      timestamp,
-      latencyMs,
-      error: null
-    };
-
-  } catch (error: any) {
-    return {
-      model: "gemini",
-      answer: "",
-      status: "error",
-      timestamp: new Date().toISOString(),
-      latencyMs: Date.now() - start,
-      error: error.name === 'AbortError' ? 'Timeout exceeded' : error.message
-    };
-  }
-}
-
-async function callGroq(prompt: string): Promise<ModelResponse> {
-  const start = Date.now();
-  try {
-    const res = await fetchWithTimeout('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-    
-    const latencyMs = Date.now() - start;
-    const timestamp = new Date().toISOString();
-
-    if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`Groq API error: ${res.status} - ${errorText}`);
-    }
-
-    const data = await res.json();
-    return {
-      model: "groq",
-      answer: data.choices?.[0]?.message?.content || "No response content.",
-      status: "success",
-      timestamp,
-      latencyMs,
-      error: null
-    };
-
-  } catch (error: any) {
-    return {
-      model: "groq",
-      answer: "",
-      status: "error",
-      timestamp: new Date().toISOString(),
-      latencyMs: Date.now() - start,
-      error: error.name === 'AbortError' ? 'Timeout exceeded' : error.message
+      error: isTimeout ? "Timeout exceeded" : errorMessage,
     };
   }
 }
 
 /**
- * Compare prompt across selected models in parallel
+ * Compare a prompt across selected models in parallel.
  */
-export async function compareModels(prompt: string, providers: Provider[]): Promise<ModelResponse[]> {
-  const promises: Promise<ModelResponse>[] = [];
+export async function compareModels(
+  prompt: string,
+  providers: Provider[]
+): Promise<ModelResponse[]> {
+  const promises = providers.map((p) =>
+    callHuggingFace(MODEL_MAP[p], p, prompt)
+  );
 
-  for (const p of providers) {
-    if (p === "openai") promises.push(callOpenAI(prompt));
-    if (p === "gemini") promises.push(callGemini(prompt));
-    if (p === "groq") promises.push(callGroq(prompt));
-  }
-
-  // Promise.all is safe here because our individual functions catch their own errors
-  // and return a localized error `ModelResponse` instead of unwinding
   return Promise.all(promises);
 }
