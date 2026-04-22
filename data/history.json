@@ -1,5 +1,77 @@
 [
   {
+    "id": "6353f072-02fa-43e3-8f63-a9c9297dad92",
+    "question": "can you explain llm",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "deepseek"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "Certainly! LLM stands for \"Large Language Model.\" These are a type of artificial intelligence model designed to understand and generate human-like text. Here are some key points about LLMs:\n\n1. **Scale**: LLMs are typically very large, containing millions or even billions of parameters. This size allows them to capture complex patterns and relationships in language.\n\n2. **Training**: These models are trained on vast amounts of text data from the internet, books, and other sources. The training process involves learning to predict the next word in a sequence given the previous words.\n\n3. **Capabilities**: LLMs can perform a wide range of natural language processing tasks, including but not limited to:\n   - **Text generation**: Creating coherent paragraphs, stories, or even entire documents.\n   - **Translation**: Translating text from one language to another.\n   - **Summarization**: Summarizing long texts into shorter, more concise versions.\n   - **Question answering**: Providing answers to questions based on the input text.\n   - **Dialogue generation**: Engaging in conversations or generating dialogue.\n\n4. **Applications**: LLMs have a wide range of applications, including:\n   - **Customer service chatbots**\n   - **Content generation for websites and blogs**\n   - **Language learning tools**\n   - **Research and academic assistance**\n   - **Creative writing and poetry**\n\n5. **Challenges**: While LLMs are powerful, they also come with challenges such as:\n   - **Bias**: Models can sometimes reflect biases present in the training data.\n   - **Safety and ethics**: Ensuring that the generated content is appropriate and does not promote harmful or misleading information.\n   - **Resource requirements**: Training and running these models requires significant computational resources.\n\n6. **Examples**: Some well-known LLMs include:\n   - **GPT (Generative Pre-trained Transformer)** by OpenAI\n   - **BERT (Bidirectional Encoder Representations from Transformers)**\n   - **T5 (Text-to-Text Transfer Transformer)**\n   - **Marian** by Hugging Face\n\nLLMs are a rapidly evolving field, and ongoing research is focused on improving their performance, efficiency, and safety.",
+        "status": "success",
+        "timestamp": "2026-04-17T14:24:55.453Z",
+        "latencyMs": 5742,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "LLM stands for Large Language Model. It is a type of artificial intelligence (AI) algorithm designed to process and generate human-like language. LLMs are trained on vast amounts of text data, which enables them to learn patterns and relationships between words, phrases, and sentences.\n\n**Key characteristics of LLMs:**\n\n1. **Training data**: LLMs are trained on large datasets of text, often sourced from the internet, books, and other online sources.\n2. **Deep learning**: LLMs use deep learning techniques, such as transformer networks, to process and analyze the text data.\n3. **Language understanding**: LLMs can comprehend and generate text in a variety of languages, including natural language processing (NLP) tasks like text classification, question answering, and language translation.\n4. **Autonomy**: LLMs can generate new text based on the input they receive, without explicit instructions or rules.\n\n**Types of LLMs:**\n\n1. **Statistical LLMs**: These models focus on statistical patterns in language, such as word frequencies and co-occurrences.\n2. **Neural LLMs**: These models use artificial neural networks to represent and manipulate linguistic structures, such as words and phrases.\n3. **Transformers**: These models, developed by the Google DeepMind team in 2017, are a type of neural LLM that has become widely popular for its ability to process and generate text.\n\n**Examples of LLMs:**\n\n1. **BERT (Bidirectional Encoder Representations from Transformers)**: Developed by Google, BERT is a popular LLM that has achieved state-of-the-art results in various NLP tasks, such as text classification, question answering, and language translation.\n2. **RoBERTa (Robustly Optimized BERT Pretraining Approach)**: RoBERTa is an updated version of BERT that has been fine-tuned for various NLP tasks.\n3. **Chatbots and virtual assistants**: LLMs are used in chatbots and virtual assistants, such as Siri, Alexa, and Google Assistant, to generate human-like responses to user queries.\n4. **Text generation**: LLMs are used to generate text, such as product descriptions, content writing, and even creative writing.\n\n**Applications of LLMs:**\n\n1. **Language translation**: LLMs can translate languages more accurately and efficiently than previous machine translation systems.\n2. **Text summarization**: LLMs can summarize lengthy documents and articles into concise and accurate",
+        "status": "success",
+        "timestamp": "2026-04-17T14:24:55.454Z",
+        "latencyMs": 734,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Of course! Let's break down what an **LLM (Large Language Model)** is, in simple terms.\n\n### The Core Idea: A \"Next Word Predictor\" on Steroids\n\nAt its heart, an **LLM is a highly sophisticated autocomplete**.\n\nImagine you're typing on your phone and it suggests the next word. It's doing this based on patterns it has learned from all the text it's seen before. An LLM does the same thing, but on a **massive, mind-boggling scale**.\n\nIt doesn't \"understand\" language like a human does. Instead, it's a mathematical model that has learned a vast number of patterns, relationships, and statistical rules about how words, phrases, and concepts fit together.\n\n---\n\n### How Does It Work? The Simple Breakdown\n\nThe process involves two main phases:\n\n**1. Training (The \"Learning\" Phase)**\n\nThis is where the model becomes \"large.\" It's fed a **colossal amount of text data** from the internet (books, articles, code, websites, etc.).\n\n*   **It learns by playing a game:** Given a sequence of words (e.g., \"The cat sat on the...\"), it constantly tries to predict the next most probable word (\"...mat\"). It then checks its guess against the actual text.\n*   **It adjusts itself:** Through a process called **deep learning** (using neural networks with **transformers** architecture), it fine-tunes billions of internal parameters (called \"weights\") to make its predictions more and more accurate.\n*   **It learns patterns, not facts:** It's not storing a copy of the internet. Instead, it's learning the underlying patterns of grammar, syntax, facts, reasoning, and even style from the data. It learns that \"Paris\" is associated with \"France,\" \"capital,\" and \"Eiffel Tower,\" and how to use those words in a sentence.\n\n**2. Inference (The \"Answering\" Phase)**\n\nThis is when you interact with it (like using ChatGPT).\n\n*   You provide a **prompt** (\"Explain how an LLM works\").\n*   The model takes your prompt and starts generating a response **one word (or \"token\") at a time**.\n*   For each step, it calculates the probability of what the next word should be, based on its training. It doesn't just pick the #1 most likely word; it uses a bit of randomness (called \"temperature\") to make its responses creative and varied.",
+        "status": "success",
+        "timestamp": "2026-04-17T14:24:55.454Z",
+        "latencyMs": 13830,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-17T14:25:09.285Z"
+  },
+  {
+    "id": "7c235b0a-aad0-4d4a-8ab7-e6eef8e95ea8",
+    "question": "can u tell me full form of llm",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "deepseek"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "LLM stands for \"Master of Laws.\" It is a postgraduate law degree that is designed for individuals who already hold a first law degree and wish to specialize in a particular area of law or to enhance their legal knowledge and skills. The LLM is often pursued by lawyers, judges, and other legal professionals to gain advanced expertise in areas such as international law, intellectual property, tax law, or corporate law.",
+        "status": "success",
+        "timestamp": "2026-04-17T14:18:50.368Z",
+        "latencyMs": 2584,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "The full form of LLM is:\n\n1. **Large Language Model**: This is a type of artificial intelligence (AI) system that uses natural language processing (NLP) to generate human-like responses or text based on input. \n\n2. In some countries LLM can also be **Luxury Luxury Model** or Local Lawmakers Member",
+        "status": "success",
+        "timestamp": "2026-04-17T14:18:50.371Z",
+        "latencyMs": 1674,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Of course! The full form of **LLM** can refer to two different things, depending on the context. The most common and trending meaning today is in the field of technology.\n\n### 1. **LLM (Most Common Today): Large Language Model**\n\nThis is the meaning you'll most frequently encounter in news about AI and technology.\n\n*   **L** - **Large**\n*   **L** - **Language**\n*   **M** - **Model**\n\nA **Large Language Model** is a type of artificial intelligence program that is trained on a massive dataset of text. This training allows it to understand, generate, and translate human language with remarkable ability.\n\n**Examples:** OpenAI's **ChatGPT** (based on the GPT models), Google's **Gemini** (based on the PaLM model), Meta's **Llama**, and Anthropic's **Claude**.\n\nThese models power chatbots, writing assistants, translation services, and much more.\n\n---\n\n### 2. **LLM (Traditional Meaning): Master of Laws**\n\nThis is the traditional academic meaning, especially common in the field of law.\n\n*   **L** - **Legum** (Latin for \"of laws\")\n*   **L** - **Magister** (Latin for \"Master\")\n*   **M** - **Master of Laws**\n\nAn **LLM** is a postgraduate academic degree in law. It is typically pursued by individuals who already have a professional law degree (like a JD in the US or an LLB in the Commonwealth) and want to specialize in a specific area of law, such as tax law, international law, or human rights law.\n\n---\n\n### How to Tell the Difference:\n\nThe context will always make it clear which one is being used.\n*   If the conversation is about **AI, chatbots, or technology**, it's **Large Language Model**.\n*   If the conversation is about **graduate school, law, or someone's academic title**, it's **Master of Laws**.\n\n**In short:**\n*   **Tech/AI Context:** **LLM = Large Language Model**\n*   **Academic/Legal Context:** **LLM = Master of Laws**",
+        "status": "success",
+        "timestamp": "2026-04-17T14:18:50.372Z",
+        "latencyMs": 22369,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-17T14:19:12.748Z"
+  },
+  {
     "id": "3ac137b5-90a8-4918-9712-7c60d7ea8e0a",
     "question": "hi",
     "selectedModels": [
