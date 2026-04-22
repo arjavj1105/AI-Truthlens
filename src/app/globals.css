@@ -1,23 +1,87 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter);
+  --color-primary: #5ed29c;
+  --color-background-obsidian: #070b0a;
+  --color-surface-glass: rgba(255, 255, 255, 0.02);
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 7, 11, 10;
+    --foreground: 237, 237, 237;
+    --primary: 94, 210, 156;
+  }
+
+  body {
+    @apply bg-background-obsidian text-white antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .glass-card {
+    @apply bg-surface-glass backdrop-blur-xl border border-white/5 rounded-2xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 15px rgba(94, 210, 156, 0.3);
+  }
+
+  .accent-glow-bg {
+    background: radial-gradient(circle at center, #0ea5e9 0%, #065f46 100%);
+    opacity: 0.15;
+    filter: blur(100px);
+  }
+
+  .blueprint-line {
+    @apply border-white/10;
+  }
+}
+
+/* Custom scrollbar for technical feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070b0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1f1e;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5ed29c;
+}
+
+/* Animations */
+@keyframes laser-scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.laser-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #5ed29c, transparent);
+  animation: laser-scan 2s linear infinite;
+}
+
+.parallax-glass {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }

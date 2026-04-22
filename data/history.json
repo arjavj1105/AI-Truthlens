@@ -1,5 +1,176 @@
 [
   {
+    "id": "0ef6b875-2be8-49e0-9647-ca74b649b38f",
+    "question": "difference between a bird and a penguin\n",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "gpt4"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "Birds and penguins are both part of the animal kingdom, but they have several key differences:\n\n1. **Habitat and Distribution**:\n   - **Birds**: Birds are found on every continent, including Antarctica, but not all species live in cold climates. They can be found in a wide variety of habitats, from deserts to forests, and from mountains to oceans.\n   - **Penguins**: Penguins are primarily found in the Southern Hemisphere, with the majority living in Antarctica, the Southern Ocean, and adjacent coasts. They are adapted to cold climates and are not found in the Northern Hemisphere.\n\n2. **Feathers**:\n   - **Birds**: Most birds have feathers, which are used for flight, insulation, and display. Some birds, like ostriches and emus, have feathers but cannot fly.\n   - **Penguins**: Penguins have dense, waterproof feathers that help them stay warm in cold water. They do not have the ability to fly, but their feathers are adapted for swimming.\n\n3. **Wings**:\n   - **Birds**: Most birds have wings that they use for flight. The wings can vary in shape and size depending on the bird's habitat and lifestyle.\n   - **Penguins**: Penguins have wings that are modified into flippers, which are used for swimming. They cannot fly.\n\n4. **Feet**:\n   - **Birds**: Bird feet can vary widely depending on the species. For example, birds of prey have sharp talons for grasping prey, while wading birds have long, thin legs for standing in water.\n   - **Penguins**: Penguin feet are short and have a layer of thick, insulating skin. They are adapted for swimming and have a reduced ability to walk on land.\n\n5. **Behavior**:\n   - **Birds**: Many bird species are highly social and live in flocks. They can be found in a wide variety of behaviors, from nesting and migration to courtship displays.\n   - **Penguins**: While penguins are also social, they live in large colonies and are known for their cooperative breeding behaviors. They are less diverse in their behaviors compared to many bird species.\n\n6. **Diet**:\n   - **Birds**: Birds have a wide range of diets, from seed-eaters to insectivores, carnivores, and even nectar feeders.\n   - **Penguins**: Penguins are primarily carnivorous, feeding on fish, squid, and krill.\n\n7. **Ev",
+        "status": "success",
+        "timestamp": "2026-04-22T14:08:05.533Z",
+        "latencyMs": 4550,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "Birds and penguins are both members of the class Aves, but they have several distinct differences:\n\n1. **Flight:** The most obvious difference is that birds can fly, while penguins are flightless. Their wings are modified to become more suited for swimming, with a layer of stiff, yet tightly packed feathers, and a distinctive webbing between their toes.\n\n2. **Wing Structure:** As mentioned earlier, penguin wings are adapted to swimming. The body shape and size are optimized for propulsion through water. The wing structure includes two 'fingers,' which act like a 'tail,' and another 'finger' at the front. Their main wing bone is 'short' whereas other birds have much longer bones.\n\n3. **Feathers:** While both birds and penguins have feathers, penguins have denser, windproof feathers, which enable them to stay dry and insulated when diving in cold water. Most birds have fewer and less densely packed feathers in their bodies and often have a pattern of feathers that traps warm air, this helps regulate their body temperature.\n\n4. **Legs:** Penguins have stumpy, flipper-like appendages, often with shorter legs, in comparison to other bird species which have much longer and more distinct legs.\n\n5. **Swimming:** Unlike most birds that mainly splash the surface with their wings or occasionally fly above water, penguins have powerful and rapid movements of their limbs to stay afloat underwater. \n\n6. **Habitat:** While both are found near watery environments, many bird species tend to remain close for water and inhabit various lands while penguins primarily inhabit ice-free coastal and offshore regions.\n\n7. **Feeding Habits:** Most birds may forage in a wide number of areas, including ocean (both near to and further from the coast) and land (from wetland areas and trees up to meadows, grasslands, deserts, etc.), but for the majority the sea is an important but minor food source when compared to penguins, which are primarily confined to ocean-related food sources in many species.\n\n8. **Physical Size and Speed:** Generally, penguins are relatively small compared to many existing birds, there's also a big variation in size among bird species.\n\nIn summary, the above distinctions reflect that while both are part of their respective ecosystems, many characteristics set birds and penguins apart from one another.",
+        "status": "success",
+        "timestamp": "2026-04-22T14:08:05.533Z",
+        "latencyMs": 651,
+        "error": null
+      },
+      {
+        "model": "gpt4",
+        "answer": "Birds are a diverse group of warm-blooded vertebrates that are characterized by feathers, beaks, and the ability to lay eggs. They can be found in a wide variety of environments all over the world and have adaptations suited to their specific habitats, including flying, swimming, and foraging behaviors.\n\nPenguins, on the other hand, are a specific type of bird that belong to the family Spheniscidae. Here are some key differences between general birds and penguins:\n\n1. **Flight**: Most birds have the ability to fly, thanks to their lightweight bodies and wing structures. Penguins, however, are flightless and have lost the ability to fly over evolutionary time. Instead, they are strong swimmers, using their wings as flippers to navigate through water.\n\n2. **Habitat**: Birds can inhabit a wide variety of environments, including forests, deserts, wetlands, and urban areas. Penguins are primarily found in the Southern Hemisphere, particularly in Antarctica and surrounding areas, and are associated with cold, aquatic environments.\n\n3. **Physical Adaptations**: Penguins have a distinctive body shape adapted for swimming; they have a more robust, torpedo-like body, dense bones for buoyancy control, and specialized feathers that are waterproof and insulated. In contrast, other birds typically have lighter bodies that are more suited for flight.\n\n4. **Social Behavior**: While many birds exhibit a range of social behaviors, penguins are known for their strong social structures, often living in large colonies and displaying unique mating rituals and parenting behaviors.\n\n5. **Diet**: Penguins primarily feed on fish, krill, and other marine organisms, while birds have a broader diet that can include seeds, nectar, insects, and meat, depending on the species.\n\nIn summary, while all penguins are birds, not all birds are penguins. Penguins represent a specialized group of flightless birds with unique adaptations for life in aquatic environments.",
+        "status": "success",
+        "timestamp": "2026-04-22T14:08:05.534Z",
+        "latencyMs": 993,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-22T14:08:12.790Z"
+  },
+  {
+    "id": "9b341b72-f499-4456-ae2a-1b01d3ab86f6",
+    "question": "can u plz tell me the difference between llm and ai\n",
+    "selectedModels": [
+      "llama",
+      "gemini",
+      "gpt4",
+      "deepseek",
+      "qwen"
+    ],
+    "responses": [
+      {
+        "model": "llama",
+        "answer": "**AI (Artificial Intelligence)**\n\nArtificial Intelligence (AI) is a broad field of computer science that focuses on creating intelligent machines that can perform tasks that would typically require human intelligence. AI systems are designed to perceive, reason, learn, and interact with their environment. The primary goals of AI are:\n\n1. **Reasoning**: Make decisions based on data, logic, and rules.\n2. **Learning**: Improve performance by absorbing and applying new knowledge.\n3. **Perception**: Understand and interpret sensory data.\n4. **Action**: Interact with the environment to achieve a goal.\n\nAI has various applications, including:\n\n* Virtual assistants\n* Image recognition\n* Natural language processing (NLP)\n* Recommendation systems\n* Robotics\n\n**LLM (Large Language Model)**\n\nA Large Language Model (LLM) is a type of AI designed specifically to process and understand human language. LLMs are trained on vast amounts of text data and are capable of generating text, translating languages, and answering questions on a wide range of topics. The primary goals of LLMs are:\n\n1. **Language Understanding**: Comprehend the meaning and context of text.\n2. **Language Generation**: Create coherent text based on the input.\n3. **Text Classification**: Categorize text based on its content, sentiment, or intent.\n\nLLMs have various applications, including:\n\n* Chatbots and virtual assistants\n* Language translation\n* Text summarization\n* Sentiment analysis\n* Content generation (e.g., articles, stories)\n\n**Key differences between LLM and AI:**\n\n1. **Scope**: LLM is a subset of AI, focusing on language processing, while AI encompasses a broader range of applications.\n2. **Goals**: LLMs aim to understand and generate human language, whereas AI goals include reasoning, learning, perception, and action.\n3. **Training data**: LLMs are typically trained on large text datasets, whereas AI systems can be trained on various types of data (e.g., images, audio, sensor readings).\n4. **Complexity**: LLMs are often simpler and more focused than general-purpose AI systems, which can be more complex and versatile.\n\nTo illustrate the difference, consider an example:\n\n* A self-driving car (AI) uses machine learning to process sensory data, reason about its environment, and interact with the world to reach its destination.\n* A chatbot (LLM) uses natural language processing to understand user queries, generate responses, and provide customer support.\n\nWhile AI",
+        "status": "success",
+        "timestamp": "2026-04-22T13:32:47.444Z",
+        "latencyMs": 5528,
+        "error": null
+      },
+      {
+        "model": "gemini",
+        "answer": "Okay, let's break down the difference between LLMs (Large Language Models) and AI (Artificial Intelligence).\n\n**AI (Artificial Intelligence): The Big Picture**\n\n*   **Definition:** AI is a broad concept encompassing the development of computer systems that can perform tasks that typically require human intelligence. These tasks can include:\n    *   Learning\n    *   Problem-solving\n    *   Decision-making\n    *   Speech recognition\n    *   Visual perception\n    *   Language understanding\n    *   Translation\n\n*   **Scope:** AI is a massive field with many subfields and approaches. It's not a single technology, but rather a wide range of techniques and algorithms.\n\n*   **Examples:**\n    *   Self-driving cars\n    *   Spam filters\n    *   Recommendation systems (like Netflix or Amazon)\n    *   Medical diagnosis systems\n    *   Game-playing AI (like chess or Go)\n    *   Robotics\n    *   And much more\n\n**LLM (Large Language Model): A Specific Type of AI**\n\n*   **Definition:** An LLM is a specific type of AI model designed to understand, generate, and manipulate human language. They are characterized by:\n    *   **Large size:** Trained on massive datasets of text and code (often billions of words).\n    *   **Deep learning:** Based on neural networks with many layers (deep learning).\n    *   **Language focus:** Specifically designed for language-related tasks.\n\n*   **Scope:** LLMs are a subset of AI, focusing specifically on natural language processing (NLP). They are a powerful tool within the broader AI landscape.\n\n*   **Examples:**\n    *   GPT-3, GPT-4 (by OpenAI)\n    *   LaMDA (by Google)\n    *   BERT (by Google)\n    *   Llama (by Meta)\n    *   ChatGPT (Built on top of a LLM)\n\n*   **Capabilities:** LLMs can perform various language-based tasks, including:\n    *   Text generation (writing articles, stories, poems, etc.)\n    *   Translation\n    *   Summarization\n    *   Question answering\n    *   Code generation\n    *   Sentiment analysis\n    *   Chatbots and conversational AI\n\n**Analogy:**\n\nThink of it this way:\n\n*   **AI is like \"Transportation\".**  It's a very broad concept.\n*   **LLM is like a \"Car\".** It's a specific type of transportation with particular features and capabilities.  A car is a subset of all transportation options.\n\n**Key Differences Summarized:**\n\n| Feature           | AI (Artificial Intelligence)                   | LLM (Large Language Model)                               |\n| ----------------- | ------------------------------------------------ | --------------------------------------------------------- |\n| **Scope**         | Broad field, encompassing many techniques        | Narrower, specific type of AI focused on language         |\n| **Focus**         | General intelligence, problem-solving              | Understanding and generating human language              |\n| **Techniques**      | Various (rule-based systems, machine learning, etc.) | Primarily deep learning (neural networks)                |\n| **Purpose**         | To create intelligent systems that can do various tasks | To process, understand, and generate human-like text      |\n| **Examples**        | Self-driving cars, spam filters, medical diagnosis   | GPT-3, ChatGPT, LaMDA, BERT                            |\n\n**In Simple Terms:**\n\nAI is the overall goal of creating machines that can think and act intelligently.  LLMs are a specific type of AI that specializes in understanding and generating language.  All LLMs are AI, but not all AI is an LLM.",
+        "status": "success",
+        "timestamp": "2026-04-22T13:32:47.446Z",
+        "latencyMs": 4954,
+        "error": null
+      },
+      {
+        "model": "gpt4",
+        "answer": "Certainly! Let's break down the terms **LLM (Large Language Model)** and **AI (Artificial Intelligence)**:\n\n### Artificial Intelligence (AI)\n- **Definition**: AI refers to the broader field of computer science focused on creating machines capable of performing tasks that would typically require human intelligence. This includes reasoning, learning, problem-solving, understanding natural language, perceiving the environment, and more.\n- **Types**: AI can be categorized into various forms, including:\n  - **Narrow AI**: Systems designed for specific tasks, such as virtual assistants, recommendation systems, and image recognition.\n  - **General AI**: A theoretical form of AI that would understand, learn, and apply intelligence across a wide range of tasks at a level comparable to a human (not yet achieved).\n\n### Large Language Model (LLM)\n- **Definition**: An LLM is a specific type of AI designed to understand and generate human language by training on large amounts of text data. It is a subset of natural language processing (NLP).\n- **Characteristics**:\n  - **Size**: LLMs are characterized by millions or billions of parameters, which allow them to capture complex patterns in language.\n  - **Training**: They learn from vast datasets including books, articles, websites, and more, enabling them to perform tasks like text completion, summarization, translation, and conversation.\n  - **Examples**: Notable examples of LLMs include GPT-3, GPT-4, BERT, and T5.\n\n### Key Differences\n1. **Scope**: AI encompasses a wide range of technologies and applications, while LLMs are a specific type of AI focused on language processing.\n2. **Functionality**: AI can include various forms of intelligence beyond just language, such as computer vision, robotics, and more. LLMs are solely focused on understanding and generating text.\n3. **Complexity**: LLMs can be seen as one of the more complex applications of AI, optimized for handling and generating human language.\n\nIn summary, while all LLMs are a form of AI, not all AI is an LLM. LLMs are specialized tools within the broader field of artificial intelligence, specifically targeting language understanding and generation.",
+        "status": "success",
+        "timestamp": "2026-04-22T13:32:47.446Z",
+        "latencyMs": 4956,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Of course! This is an excellent question that trips up a lot of people. Here’s a simple breakdown of the difference.\n\nThink of it like this:\n*   **AI (Artificial Intelligence)** is the **entire, vast field** of study.\n*   **An LLM (Large Language Model)** is **one specific, powerful tool** created within that field.\n\nIt's the difference between the entire field of **\"Automotive Engineering\"** (AI) and a specific type of engine, like a **\"Turbocharged V8\"** (LLM).\n\n---\n\n### The Big Picture: Artificial Intelligence (AI)\n\n**AI is the broad goal of creating machines or software that can perform tasks typically requiring human intelligence.**\n\nThis includes a huge range of capabilities:\n*   **Learning** (Machine Learning)\n*   **Problem-solving**\n*   **Reasoning**\n*   **Perception** (e.g., computer vision for facial recognition)\n*   **Understanding language** (Natural Language Processing - NLP)\n*   **Making decisions** (e.g., a chess-playing computer)\n\n**Key Analogy:** AI is the entire **\"School of Science.\"**\n\n---\n\n### The Specific Tool: Large Language Model (LLM)\n\n**An LLM is a specific type of AI** designed to understand, generate, and manipulate human language.\n\n*   **What it is:** It's a machine learning model trained on a **massive** dataset of text (e.g., books, articles, websites).\n*   **What it does:** Its primary function is to predict the next word in a sequence. This simple-sounding task, performed on a colossal scale, allows it to write essays, translate languages, answer questions, and hold conversations.\n*   **Examples:** ChatGPT (powered by GPT-4), Google's Gemini, Anthropic's Claude, and Meta's Llama.\n\n**Key Analogy:** An LLM is a **specific \"Major\" within that school**, like **\"Linguistics.\"**\n\n---\n\n### Side-by-Side Comparison\n\n| Feature | Artificial Intelligence (AI) | Large Language Model (LLM) |\n| :--- | :--- | :--- |\n| **Scope** | **Very Broad.** The entire field and its many goals. | **Very Specific.** A sub-field focused on language. |\n| **Purpose** | To create intelligent systems for a vast range of tasks. | To understand, generate, and work with human language. |\n| **What it includes** | Machine Learning",
+        "status": "success",
+        "timestamp": "2026-04-22T13:32:47.447Z",
+        "latencyMs": 21400,
+        "error": null
+      },
+      {
+        "model": "qwen",
+        "answer": "Certainly! Let's break down the differences between LLM (Large Language Model) and AI (Artificial Intelligence).\n\n### AI (Artificial Intelligence)\nAI is a broad field of computer science that aims to create systems capable of performing tasks that typically require human intelligence. This includes a wide range of technologies and techniques, such as:\n\n- **Machine Learning**: A subset of AI that involves training algorithms on data to make predictions or decisions.\n- **Natural Language Processing (NLP)**: A branch of AI that focuses on the interaction between computers and humans in natural language.\n- **Computer Vision**: AI techniques that enable computers to interpret and understand visual information from the world.\n- **Robotics**: AI applied to the design and operation of robots.\n- **Expert Systems**: AI systems that simulate the decision-making ability of a human expert.\n\n### LLM (Large Language Model)\nA Large Language Model (LLM) is a specific type of AI model that is designed to understand and generate human-like text. LLMs are typically trained on vast amounts of text data and are capable of a wide range of language-related tasks, such as:\n\n- **Text Generation**: Creating new text that is similar to the text it was trained on.\n- **Language Translation**: Translating text from one language to another.\n- **Question Answering**: Providing answers to questions based on the text it has been trained on.\n- **Text Summarization**: Summarizing long texts into shorter, more concise versions.\n- **Text Classification**: Categorizing text into predefined categories.\n\nLLMs are often part of the broader field of AI, but they are specifically focused on language-related tasks. They are typically deep learning models that have been trained on large datasets, such as books, articles, and web pages.\n\n### Key Differences\n1. **Scope**: AI is a broader field that encompasses many different types of technologies and techniques, while LLMs are a specific type of AI focused on language.\n2. **Focus**: AI can be applied to a wide range of tasks, including but not limited to language processing, while LLMs are specifically designed to handle language-related tasks.\n3. **Training Data**: LLMs are typically trained on large datasets of text, while other types of AI models might be trained on different types of data, such as images or numerical data.\n\nIn summary, while AI is a broad field that includes many different types of technologies, LLMs are a specific type of AI model that is particularly adept at handling language-related tasks.",
+        "status": "success",
+        "timestamp": "2026-04-22T13:32:47.447Z",
+        "latencyMs": 8307,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-22T13:33:08.872Z"
+  },
+  {
+    "id": "8bbc4e30-c239-4909-9a24-40330a0d11b4",
+    "question": "hi",
+    "selectedModels": [
+      "qwen",
+      "llama"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "Hello! How can I assist you today?",
+        "status": "success",
+        "timestamp": "2026-04-22T13:31:36.848Z",
+        "latencyMs": 7587,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "How can I assist you today?",
+        "status": "success",
+        "timestamp": "2026-04-22T13:31:36.852Z",
+        "latencyMs": 7541,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-22T13:31:44.436Z"
+  },
+  {
+    "id": "a94b0e7a-940b-473c-9af8-5765dc6a875f",
+    "question": "What is the capital of France?",
+    "selectedModels": [
+      "llama",
+      "gemini"
+    ],
+    "responses": [
+      {
+        "model": "llama",
+        "answer": "The capital of France is Paris.",
+        "status": "success",
+        "timestamp": "2026-04-22T13:25:15.548Z",
+        "latencyMs": 715,
+        "error": null
+      },
+      {
+        "model": "gemini",
+        "answer": "The capital of France is **Paris**.",
+        "status": "success",
+        "timestamp": "2026-04-22T13:25:15.551Z",
+        "latencyMs": 1108,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-22T13:25:16.764Z"
+  },
+  {
+    "id": "6f015901-f90c-40fd-9f2a-d04af72a9f0d",
+    "question": "hi",
+    "selectedModels": [
+      "qwen",
+      "llama"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-22T13:23:33.766Z",
+        "latencyMs": 10504,
+        "error": "fetch failed"
+      },
+      {
+        "model": "llama",
+        "answer": "",
+        "status": "error",
+        "timestamp": "2026-04-22T13:23:33.766Z",
+        "latencyMs": 10502,
+        "error": "fetch failed"
+      }
+    ],
+    "createdAt": "2026-04-22T13:23:33.767Z"
+  },
+  {
     "id": "4ed63957-955f-44ea-9774-441f6b6ed97b",
     "question": "hyi ",
     "selectedModels": [

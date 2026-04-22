@@ -2,6 +2,7 @@
 
 import { Provider } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface ModelSelectorProps {
   selectedModels: Provider[];
@@ -28,13 +29,17 @@ export function ModelSelector({ selectedModels, onChange }: ModelSelectorProps) 
   const providers = ["Hugging Face", "OpenRouter"];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
       {providers.map((providerName) => (
         <div key={providerName} className="space-y-4">
-          <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wider">
-            Select {providerName} Models
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="flex items-center space-x-3">
+            <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-[0.2em]">
+              {providerName} AGENTS
+            </h3>
+            <div className="flex-1 h-[1px] bg-white/5" />
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {AVAILABLE_MODELS.filter(m => m.provider === providerName).map((model) => {
               const isSelected = selectedModels.includes(model.id);
               return (
@@ -43,30 +48,44 @@ export function ModelSelector({ selectedModels, onChange }: ModelSelectorProps) 
                   type="button"
                   onClick={() => toggleModel(model.id)}
                   className={cn(
-                    "p-4 rounded-xl border-2 text-left transition-all duration-200",
+                    "relative group p-4 rounded-xl border transition-all duration-300 overflow-hidden text-left",
                     isSelected
-                      ? "border-blue-500 bg-blue-50/50 dark:bg-blue-900/20"
-                      : "border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800"
+                      ? "border-primary/50 bg-primary/5 neon-glow"
+                      : "border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10"
                   )}
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className={cn(
-                      "font-medium",
-                      isSelected ? "text-blue-700 dark:text-blue-400" : "text-gray-900 dark:text-gray-100"
-                    )}>
-                      {model.label}
-                    </span>
-                    {isSelected && (
-                      <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
+                  {/* Laser Scan Animation on Selection */}
+                  {isSelected && (
+                    <div className="absolute inset-x-0 top-0 h-full pointer-events-none z-0">
+                      <div className="laser-line" />
+                    </div>
+                  )}
+
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={cn(
+                        "text-xs font-display font-bold transition-colors",
+                        isSelected ? "text-primary" : "text-gray-400 group-hover:text-gray-200"
+                      )}>
+                        {model.label}
                       </span>
-                    )}
+                      {isSelected && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="w-2 h-2 rounded-full bg-primary"
+                        />
+                      )}
+                    </div>
+                    <p className="text-[10px] font-body text-gray-500 leading-relaxed">
+                      {model.description}
+                    </p>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {model.description}
-                  </p>
+
+                  {/* Tech Detail Overlay */}
+                  <div className="absolute bottom-1 right-1 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span className="text-[8px] font-mono uppercase tracking-tighter">PROVIDER::{model.id}</span>
+                  </div>
                 </button>
               );
             })}
@@ -75,9 +94,13 @@ export function ModelSelector({ selectedModels, onChange }: ModelSelectorProps) 
       ))}
       
       {selectedModels.length > 0 && selectedModels.length < 2 && (
-        <p className="text-sm text-amber-600 dark:text-amber-400 mt-2">
-          Please select at least one more model for comparison.
-        </p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-[10px] font-mono text-amber-500/80 uppercase tracking-widest text-center"
+        >
+          [WARNING]: Select minimum of 2 agents for delta analysis.
+        </motion.p>
       )}
     </div>
   );

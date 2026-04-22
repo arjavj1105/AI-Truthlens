@@ -5,8 +5,9 @@ import { useParams, useRouter } from "next/navigation";
 import { ComparisonRecord } from "@/lib/types";
 import { ResponseCard } from "@/components/ResponseCard";
 import { ModelRanking } from "@/components/ModelRanking";
-import { ArrowLeft, Loader2, AlertCircle } from "lucide-react";
+import { ArrowLeft, Loader2, AlertTriangle } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function HistoryDetailPage() {
   const params = useParams();
@@ -19,12 +20,10 @@ export default function HistoryDetailPage() {
 
   useEffect(() => {
     if (!id) return;
-
     async function fetchRecord() {
       try {
         const res = await fetch(`/api/history/${id}`);
         const data = await res.json();
-        
         if (data.success) {
           setRecord(data.record);
         } else {
@@ -36,72 +35,102 @@ export default function HistoryDetailPage() {
         setLoading(false);
       }
     }
-
     fetchRecord();
   }, [id]);
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full min-h-[50vh]">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+      <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <span className="text-[10px] font-mono text-gray-600 uppercase tracking-widest animate-pulse">
+          Loading Query Record...
+        </span>
       </div>
     );
   }
 
   if (error || !record) {
     return (
-      <div className="max-w-2xl mx-auto mt-12 p-6 bg-red-50 border border-red-100 rounded-2xl flex flex-col items-center text-center">
-        <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
-        <h2 className="text-xl font-bold text-red-700 mb-2">Failed to load comparison</h2>
-        <p className="text-red-600 mb-6">{error || "Record not found"}</p>
-        <button 
-          onClick={() => router.push('/')}
-          className="px-4 py-2 bg-white text-gray-800 font-medium rounded-lg border shadow-sm hover:bg-gray-50 flex items-center gap-2"
-        >
-          <ArrowLeft className="w-4 h-4" /> Go back to home
-        </button>
+      <div className="max-w-2xl mx-auto mt-16 px-6">
+        <div className="glass-card border-red-500/20 p-8 flex flex-col items-center text-center space-y-4">
+          <div className="w-12 h-12 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+            <AlertTriangle className="w-6 h-6 text-red-400" />
+          </div>
+          <div>
+            <div className="text-[9px] font-mono text-red-400 uppercase tracking-widest mb-1">RECORD_NOT_FOUND</div>
+            <p className="text-gray-400 text-sm">{error || "Record not found"}</p>
+          </div>
+          <button
+            onClick={() => router.push("/")}
+            className="flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-gray-300 transition-colors border border-white/5 px-4 py-2 rounded-lg hover:bg-white/5"
+          >
+            <ArrowLeft className="w-3 h-3" /> Return to Mission Control
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 pb-12">
-      <div className="pt-4 pb-2">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to comparisons
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="max-w-7xl mx-auto px-4 py-12 space-y-12 pb-24"
+    >
+      {/* Back nav */}
+      <div>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[10px] font-mono text-gray-600 hover:text-gray-300 transition-colors uppercase tracking-widest"
+        >
+          <ArrowLeft className="w-3 h-3" /> Mission Control
         </Link>
       </div>
 
-      <header className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-            Historical Comparison
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pl-4 border-l-2 border-primary/40">
+        <div>
+          <div className="text-[9px] font-mono text-primary uppercase tracking-[0.25em] mb-1">
+            Historical Record
+          </div>
+          <h1 className="text-4xl font-display font-extrabold text-white tracking-tight">
+            Archived Analysis
           </h1>
-          <div className="text-sm font-mono text-gray-500 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-md">
-             {new Date(record.createdAt).toLocaleString()}
+        </div>
+        <div className="flex items-center gap-6 font-mono text-[9px] text-gray-600">
+          <div>
+            <div className="uppercase tracking-widest mb-0.5">QUERY_ID</div>
+            <div className="text-gray-400">{record.id.slice(0, 12)}...</div>
+          </div>
+          <div className="w-[1px] h-8 bg-white/10" />
+          <div>
+            <div className="uppercase tracking-widest mb-0.5">RECORDED</div>
+            <div className="text-gray-400">{new Date(record.createdAt).toLocaleString()}</div>
           </div>
         </div>
-      </header>
+      </div>
 
-      <section className="space-y-6 pt-4 animate-in fade-in duration-500">
-        
-        <div className="bg-gray-100 dark:bg-gray-900/50 p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-inner">
-          <h3 className="text-xs font-semibold uppercase text-gray-500 mb-2 tracking-wider">Prompt</h3>
-          <p className="text-gray-800 dark:text-gray-200 italic font-medium leading-relaxed">
-            &quot;{record.question}&quot;
-          </p>
-        </div>
+      {/* Prompt */}
+      <div className="glass-card border-white/5 px-6 py-5">
+        <div className="text-[9px] font-mono text-gray-600 uppercase tracking-widest mb-2">Input Prompt</div>
+        <p className="text-gray-300 font-body text-sm italic leading-relaxed">
+          &quot;{record.question}&quot;
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {record.responses.map((response, idx) => (
-            <ResponseCard key={idx} response={response} />
-          ))}
-        </div>
+      {/* Responses */}
+      <div className={`grid gap-6 ${
+        record.responses.length === 1 ? "grid-cols-1 max-w-2xl" :
+        record.responses.length === 2 ? "grid-cols-1 lg:grid-cols-2" :
+        "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+      }`}>
+        {record.responses.map((response, idx) => (
+          <ResponseCard key={idx} response={response} />
+        ))}
+      </div>
 
-        {/* Model Ranking & Scores */}
-        <ModelRanking responses={record.responses} />
-        
-      </section>
-    </div>
+      {/* Analytics */}
+      <ModelRanking responses={record.responses} />
+    </motion.div>
   );
 }

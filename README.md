@@ -1,57 +1,54 @@
-# 🔬 AI Truthlens
+# 🔬 AI TruthLens: Mission Control v2.1
 
-AI Truthlens is a modern web application designed to compare and evaluate responses from various Large Language Models (LLMs) in real-time. By leveraging the **Hugging Face Router API**, it providing insights into model reasoning, speed, and accuracy across different providers like Qwen, Llama, and DeepSeek.
+AI TruthLens is a premium, high-fidelity LLM validation playground and diagnostic sovereignty layer. Built for engineers and AI researchers, it provides absolute metric transparency and cinematic comparative analysis across frontier models.
 
-## 🚀 Features
+## 🌌 Cinematic Mission Control
+- **Liquid-Glass UI**: A state-of-the-art Deep Obsidian design system with 24px+ blurred glass surfaces and neon reactive accents.
+- **Atmospheric Visuals**: HLS-streamed video backgrounds and hardware-accelerated animations (Framer Motion).
+- **Pentagon Analytic Engine**: 5-pillar multi-vector benchmarking (Speed, Factuality, Logic, Token Efficiency, and Language Breadth).
 
-- **Real-time Comparison**: Query multiple models simultaneously and compare their outputs side-by-side.
-- **Model Ranking System**: Automatically scores and ranks models based on response speed and reasoning heuristics.
-- **Persistent History**: Saves your previous comparisons for future reference and analysis.
-- **Modern UI**: Built with Next.js 15, providing a sleek, responsive experience with dark mode support.
+## 🛡️ Strategic Engineering
+- **Zero-Blind-Trust Architecture**: Parallel orchestration with automated exponential backoff and circuit-breaking protocols.
+- **Diagnostic Sovereignty**: Real-time TTFT, TPS, and latency diagnostics with structured fault reporting.
+- **Session Analytics**: Global Zustand store for live throughput tracking and longitudinal reliability metrics.
 
 ## 🛠️ Tech Stack
+- **Framework**: Next.js 15+ (App Router / Turbopack)
+- **Styling**: Tailwind CSS 4 (Deep Obsidian Design Tokens)
+- **State Management**: Zustand
+- **Orchestration**: Hugging Face Router & OpenRouter API
+- **Animations**: Framer Motion & HLS.js
 
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS / Vanilla CSS
-- **API**: Hugging Face Inference API (Router Endpoint)
-- **Language**: TypeScript
+## 🏁 Deployment Directive
 
-## 🏁 Getting Started
-
-### 1. Prerequisites
-- Node.js 18+ 
-- npm / yarn / pnpm
-- A **Hugging Face API Token** (Inference API access)
-
-### 2. Installation
-Clone the repository and install dependencies:
+### 1. Installation
 ```bash
 git clone https://github.com/arjavj1105/AI-Truthlens.git
 cd AI-Truthlens
 npm install
 ```
 
-### 3. Environment Setup
-Create a `.env` file in the root directory (you can copy `.env.example`):
-```bash
-cp .env.example .env
-```
-Add your Hugging Face token to `.env`:
+### 2. Secure Environment Setup
+Configure your mission parameters in `.env`:
 ```env
-HF_TOKEN=your_hf_token_here
+# Hugging Face Inference API
+HF_TOKEN=hf_...
+
+# OpenRouter Frontier API
+OPENROUTER_API_KEY=sk-or-v1-...
 ```
 
-### 4. Run Development Server
+### 3. Initialize Mission Control
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to see the application.
+Access the control panel at: [http://localhost:3000](http://localhost:3000)
 
-## 📁 Repository Structure
-- `src/app`: Next.js pages and API routes.
-- `src/lib`: Core logic for model aggregation and ranking.
-- `src/components`: Reusable UI components.
-- `data/`: Local JSON storage for history (development mode).
+## 📁 System Architecture
+- `src/lib/store.ts`: Zustand analytic ledger and provider stats.
+- `src/lib/modelService.ts`: Resilient provider management and backoff logic.
+- `src/components/PentagonChart.tsx`: SVG-based 5-pillar analytic visualization.
+- `data/history.json`: Persistent historical execution metadata.
 
-## 📄 License
-This project is licensed under the MIT License.
+---
+*Developed for the AI Reliability Sovereignty Layer.*

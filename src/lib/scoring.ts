@@ -33,6 +33,20 @@ export const MODEL_META: Record<Provider, ModelMeta> = {
     costLevel: "Free (HF)",
     bestFor: "Deep reasoning & code generation",
   },
+  gemini: {
+    provider: "gemini",
+    label: "Gemini 2.0 Flash",
+    maxContext: "1M tokens",
+    costLevel: "Paid (OR)",
+    bestFor: "Multimodal & general advanced reasoning",
+  },
+  gpt4: {
+    provider: "gpt4",
+    label: "GPT-4o Mini",
+    maxContext: "128K tokens",
+    costLevel: "Paid (OR)",
+    bestFor: "Fast instruction following & logic",
+  },
 };
 
 /**
@@ -128,14 +142,22 @@ export function scoreResponses(responses: ModelResponse[]): ModelScore[] {
         ? Math.round(speedScore * 0.35 + reasoningScore * 0.65)
         : 0;
 
+    const meta = MODEL_META[r.model] ?? {
+      provider: r.model,
+      label: r.model,
+      maxContext: "N/A",
+      costLevel: "Unknown",
+      bestFor: "General use",
+    };
+
     return {
       provider: r.model,
-      label: MODEL_META[r.model].label,
+      label: meta.label,
       speedScore,
       reasoningScore,
       overallScore,
       rank: 0, // will be set below
-      meta: MODEL_META[r.model],
+      meta,
       latencyMs: r.latencyMs,
     };
   });

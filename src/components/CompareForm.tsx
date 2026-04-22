@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { Provider, ComparisonRecord } from "@/lib/types";
 import { ModelSelector } from "./ModelSelector";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, Zap } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface CompareFormProps {
   onSuccess: (record: ComparisonRecord) => void;
@@ -42,7 +43,6 @@ export function CompareForm({ onSuccess }: CompareFormProps) {
       }
 
       onSuccess(data.record);
-      // Optional: Clear question after successful send? Or keep context. Let's keep context for now.
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : String(err);
       setError(errorMessage);
@@ -52,21 +52,36 @@ export function CompareForm({ onSuccess }: CompareFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-10">
       
-      <div>
-        <label htmlFor="question" className="block text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wider mb-2">
-          Your Question
-        </label>
-        <textarea
-          id="question"
-          rows={4}
-          className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-3 placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none shadow-inner"
-          placeholder="e.g. Can you explain the difference between a process and a thread?"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          disabled={isSubmitting}
-        />
+      <div className="relative group">
+        <div className="flex items-center justify-between mb-3 px-1">
+          <label htmlFor="question" className="text-[10px] font-mono text-gray-500 uppercase tracking-widest flex items-center gap-2">
+            <div className="w-1 h-1 bg-primary rounded-full" />
+            Input Prompt
+          </label>
+          <span className="text-[10px] font-mono text-gray-600">UTF-8 ENCODING</span>
+        </div>
+        
+        <div className="relative">
+          <textarea
+            id="question"
+            rows={4}
+            className={cn(
+              "w-full bg-black/40 border border-white/5 rounded-xl px-5 py-4 text-gray-200 placeholder:text-gray-700 focus:outline-none transition-all resize-none font-body",
+              "group-hover:border-white/10"
+            )}
+            placeholder="System awaiting query parameters..."
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            disabled={isSubmitting}
+          />
+          {/* Pulsing Active Border */}
+          <div className={cn(
+            "absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500 rounded-full",
+            question.length > 0 ? "w-full opacity-100 neon-glow" : "w-0 opacity-0"
+          )} />
+        </div>
       </div>
 
       <ModelSelector
@@ -75,28 +90,48 @@ export function CompareForm({ onSuccess }: CompareFormProps) {
       />
 
       {error && (
-        <div className="text-red-500 text-sm font-medium bg-red-50 dark:bg-red-900/10 p-3 rounded-lg border border-red-200 dark:border-red-900/30">
-          {error}
+        <div className="text-red-400 text-xs font-mono bg-red-500/5 p-4 rounded-lg border border-red-500/20 animate-in fade-in slide-in-from-top-1">
+          <span className="text-red-500 mr-2">[ERROR]:</span> {error}
         </div>
       )}
 
-      <div className="pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-end">
+      <div className="flex items-center justify-between pt-6 border-t border-white/5">
+        <div className="hidden sm:flex items-center space-x-6 text-[10px] font-mono text-gray-600">
+          <div className="flex items-center gap-2">
+            <span className="w-1 h-1 rounded-full bg-gray-700" />
+            MODELS_LOADED: {selectedModels.length}
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-1 h-1 rounded-full bg-gray-700" />
+            EST_LATENCY: ~1.2s
+          </div>
+        </div>
+
         <button
           type="submit"
           disabled={isSubmitting || selectedModels.length < 2 || !question.trim()}
-          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 dark:disabled:bg-gray-700 text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-sm disabled:cursor-not-allowed"
-        >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" />
-              Running Query...
-            </>
-          ) : (
-            <>
-              <Send className="w-5 h-5" />
-              Compare Models
-            </>
+          className={cn(
+            "relative group flex items-center gap-3 bg-primary text-background-obsidian px-8 py-4 rounded-xl font-display font-bold uppercase text-xs tracking-widest transition-all",
+            "hover:bg-emerald-400 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:grayscale disabled:scale-100 disabled:cursor-not-allowed",
+            "overflow-hidden"
           )}
+        >
+          {/* Data Pulse Ripple Effect */}
+          <div className="absolute inset-0 bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+          
+          <span className="relative z-10 flex items-center gap-3">
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                Processing
+              </>
+            ) : (
+              <>
+                <Zap className="w-4 h-4 fill-current" />
+                Initialize Comparison
+              </>
+            )}
+          </span>
         </button>
       </div>
 
