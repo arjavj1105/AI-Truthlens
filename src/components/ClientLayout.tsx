@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isLandingPage = pathname === "/codenest";
+  const isLandingPage = pathname.startsWith("/codenest");
 
   return (
     <div className="flex h-screen overflow-hidden">

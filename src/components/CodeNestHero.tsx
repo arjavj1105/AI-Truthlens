@@ -1,19 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Hls from "hls.js";
 import Link from "next/link";
-import { ArrowRight, Menu, X } from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { ArrowRight } from "lucide-react";
+import CodeNestHeader from "./CodeNestHeader";
 
 const CodeNestHero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -38,10 +32,6 @@ const CodeNestHero: React.FC = () => {
       }
     }
   }, []);
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-  ];
 
   return (
     <div className="relative min-h-screen w-full bg-[#070b0a] overflow-hidden text-white font-sans">
@@ -89,55 +79,7 @@ const CodeNestHero: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Global Navigation */}
-      <header className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex items-center justify-between border-b border-white/5 backdrop-blur-sm">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-            <span className="text-[#070b0a] font-bold text-xl">T</span>
-          </div>
-          <span className="text-xl font-bold tracking-tight">AI-Truthlens</span>
-        </Link>
-
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8 font-inter text-base">
-          {navLinks.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-white/70 hover:text-[#5ed29c] transition-colors duration-200"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden p-2 text-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={cn(
-          "fixed inset-0 z-40 bg-[#070b0a]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 transition-all duration-300 md:hidden",
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        )}
-      >
-        {navLinks.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className="text-3xl font-inter hover:text-[#5ed29c]"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
+      <CodeNestHeader />
 
       {/* Hero Content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center pt-20">
@@ -166,12 +108,12 @@ const CodeNestHero: React.FC = () => {
               }}
             />
 
-            <span className="text-[14px] opacity-60 mb-2 font-mono">[ 2025 ]</span>
+            <span className="text-[14px] opacity-60 mb-2 font-mono">[ 2026 ]</span>
             <h3 className="text-[18px] font-medium leading-tight mb-3">
-              Taught by <span className="font-instrument-serif italic">Industry</span> Professionals
+              Multi-Model AI <span className="font-instrument-serif italic">Comparison</span>
             </h3>
             <p className="text-[11px] opacity-50 max-w-[140px]">
-              Learn from the experts who build the future.
+              Explore how different AI models respond to the same question and understand their behavior.
             </p>
           </div>
         </div>
@@ -179,26 +121,30 @@ const CodeNestHero: React.FC = () => {
         {/* 3. Hero Content & Typography */}
         <div className="space-y-6 max-w-4xl mx-auto">
           <span className="font-plus-jakarta font-bold text-[11px] tracking-widest text-[#5ed29c] uppercase">
-            Career-Ready Curriculum
+            AI Reliability Learning Platform
           </span>
           
           <h1 className="text-4xl md:text-7xl font-inter font-extrabold tracking-tight uppercase leading-[1.1]">
-            LAUNCH YOUR CODING <br className="hidden md:block" /> CAREER
+            COMPARE AI ANSWERS. <br className="hidden md:block" /> FIND THE TRUTH
             <span className="text-[#5ed29c]">.</span>
           </h1>
 
           <p className="text-sm md:text-base text-white/70 max-w-[512px] mx-auto font-inter">
-            Master in-demand coding skills through immersive, project-based learning. 
-            Build a portfolio that stands out to top-tier tech companies globally.
+            Analyze responses from multiple AI models side-by-side. Identify differences, understand inconsistencies, and improve how you use AI.
           </p>
 
-          <Link 
-            href="/"
-            className="mt-8 bg-[#5ed29c] text-[#070b0a] font-bold py-4 px-8 rounded-full inline-flex items-center gap-3 uppercase tracking-wider text-sm hover:scale-105 transition-transform duration-200"
-          >
-            Get Started
-            <ArrowRight size={20} />
-          </Link>
+          <div className="flex flex-col items-center gap-4 mt-8">
+            <Link 
+              href="/codenest/playground"
+              className="bg-[#5ed29c] text-[#070b0a] font-bold py-4 px-8 rounded-full inline-flex items-center gap-3 uppercase tracking-wider text-sm hover:scale-105 transition-transform duration-200"
+            >
+              Start Comparing
+              <ArrowRight size={20} />
+            </Link>
+            <p className="text-xs text-white/40 font-inter tracking-wide italic">
+              "No more blind trust — verify AI responses yourself."
+            </p>
+          </div>
         </div>
       </main>
     </div>
