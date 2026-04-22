@@ -1,4 +1,4 @@
-export type Provider = "qwen" | "llama" | "deepseek";
+export type Provider = "qwen" | "llama" | "deepseek" | "gemini" | "gpt4";
 
 export interface ModelResponse {
   model: Provider;
