@@ -3,6 +3,8 @@
 AI TruthLens is a premium, high-fidelity LLM validation playground and diagnostic sovereignty layer. Built for engineers and AI researchers, it provides absolute metric transparency and cinematic comparative analysis across frontier models.
 
 ## 🌌 Cinematic Mission Control
+*Update: Streamlined navigation by removing Benchmarks and History for a cleaner interface.*
+
 - **Liquid-Glass UI**: A state-of-the-art Deep Obsidian design system with 24px+ blurred glass surfaces and neon reactive accents.
 - **Atmospheric Visuals**: HLS-streamed video backgrounds and hardware-accelerated animations (Framer Motion).
 - **Pentagon Analytic Engine**: 5-pillar multi-vector benchmarking (Speed, Factuality, Logic, Token Efficiency, and Language Breadth).

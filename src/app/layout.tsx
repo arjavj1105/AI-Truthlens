@@ -39,8 +39,6 @@ export default function RootLayout({
               
               <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
                 <Link href="/" className="hover:text-primary transition-colors">Playground</Link>
-                <Link href="/benchmarks" className="hover:text-primary transition-colors">Benchmarks</Link>
-                <Link href="/history" className="hover:text-primary transition-colors">History</Link>
               </nav>
 
               <div className="flex items-center space-x-4">

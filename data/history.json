@@ -1,5 +1,113 @@
 [
   {
+    "id": "83684544-3201-4eb1-9677-d1d7786f4f4c",
+    "question": "what is llm",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "deepseek",
+      "gpt4",
+      "gemini"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "LLM stands for \"Large Language Model.\" It refers to a class of artificial intelligence models designed to understand and generate human-like text. These models are typically based on deep learning techniques, particularly transformer architectures, and are trained on vast amounts of text data from the internet, books, and other sources.\n\nKey characteristics of LLMs include:\n\n1. **Scale**: They are large in terms of the number of parameters, often containing billions or even trillions of parameters.\n2. **Training Data**: They are trained on extensive datasets, which allows them to learn a wide range of language patterns and knowledge.\n3. **Capabilities**: They can perform various natural language processing tasks, such as text generation, translation, summarization, question answering, and more.\n4. **Context Understanding**: They can understand and generate text in a contextually appropriate manner, making them useful for conversational AI applications.\n\nSome well-known examples of LLMs include:\n\n- **GPT (Generative Pre-trained Transformer)** by OpenAI\n- **BERT (Bidirectional Encoder Representations from Transformers)** by Google\n- **T5 (Text-to-Text Transfer Transformer)** by Google\n- **LLaMA (Large Language Model Meta AI)** by Meta AI\n\nThese models are at the forefront of advancements in natural language processing and are increasingly being used in various applications, from customer service chatbots to content generation and research assistance.",
+        "status": "success",
+        "timestamp": "2026-04-24T14:13:50.078Z",
+        "latencyMs": 3041,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "LLM can refer to several concepts, depending on the context:\n\n1. **Large Language Model**: In natural language processing (NLP) and artificial intelligence (AI), a large language model (LLM) is a type of deep learning model that is trained on a large corpus of text data to generate human-like language. These models use neural networks to predict the next word in a sequence, given the context of the surrounding words.\n\n2. **Liberty Latin (LLM)**: Liberty Latin is a company that distributes various telecommunication services in more than 100 countries. Their services include TV, Broadband, Telephony, and Digital Communications. \n\n3. **LLM Law (Limited Liability Membership)**: A Limited Liability Membership Company is also referred to as an LLM. This type of company has several characteristics similar to LLP (Limited Liability Partnership) but can also be managed without a General Partner.\n\n4. **LLM University (London, UK)**: London Law Masters or LLM, a master's level qualification in law offered by the University of London’s many colleges.",
+        "status": "success",
+        "timestamp": "2026-04-24T14:13:50.079Z",
+        "latencyMs": 895,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Of course! Here is a detailed explanation of what an LLM is.\n\n### In Simple Terms\n\nAn **LLM (Large Language Model)** is a type of artificial intelligence program that is incredibly good at understanding and generating human-like text.\n\nThink of it as a super-powered **autocomplete**. It has been trained on a massive amount of text from the internet (books, articles, code, etc.), so it has learned the patterns, structures, and nuances of human language. When you give it a prompt, it predicts the most likely words that should come next, based on all the information it has learned.\n\n---\n\n### The \"Large\" in LLM\n\nThe \"Large\" refers to two key things:\n\n1.  **Massive Dataset:** It's trained on a huge portion of the internet—trillions of words.\n2.  **Immense Number of Parameters:** Parameters are the internal variables the model uses to make its predictions. They are like the model's \"knowledge nodes.\" LLMs have billions or even trillions of these parameters, which is what allows them to capture such complex language patterns.\n\n---\n\n### How Does an LLM Work?\n\nThe process can be broken down into a few key steps:\n\n1.  **Training:** The model is trained on its massive dataset. It learns by trying to predict the next word in a sentence over and over again, trillions of times. Through this process, it builds a complex statistical map of how language works—which words are likely to follow others, how grammar functions, and even facts about the world.\n2.  **Transformer Architecture:** Almost all modern LLMs (like GPT-4, PaLM, Llama) are built on a technology called the **Transformer** (invented by Google in 2017). This architecture is exceptionally good at understanding the *context* of words in a sentence. It pays \"attention\" to all the other words to understand the meaning of each one, rather than just processing them in order.\n3.  **Prompting & Generation:** When you give it a prompt (a question, an instruction, a sentence fragment), the model uses its internal knowledge to generate a sequence of words that form a coherent and relevant response.\n\n---\n\n### What Can LLMs Do?\n\nLLMs are versatile and power many of the AI tools we use today:\n\n*   **Answer Questions:** Like a super-charged search engine (e.g., \"Explain quantum computing like I'm 10\").\n*   **Generate Text:** Write",
+        "status": "success",
+        "timestamp": "2026-04-24T14:13:50.080Z",
+        "latencyMs": 10864,
+        "error": null
+      },
+      {
+        "model": "gpt4",
+        "answer": "\"LLM\" typically stands for \"Large Language Model.\" These are types of artificial intelligence models that are trained on vast amounts of text data to understand and generate human-like language. LLMs can perform various language tasks, including but not limited to:\n\n1. **Text Generation**: Producing coherent and contextually relevant text based on a given prompt.\n2. **Translation**: Translating text from one language to another.\n3. **Summarization**: Condensing long articles or documents into shorter summaries.\n4. **Question Answering**: Providing answers to questions posed in natural language.\n5. **Sentiment Analysis**: Determining the sentiment or emotional tone behind a piece of text.\n\nExamples of well-known LLMs include OpenAI's GPT (like ChatGPT), Google's BERT, and other models developed for natural language processing tasks.\n\nIf you meant something else by \"LLM,\" please provide more context!",
+        "status": "success",
+        "timestamp": "2026-04-24T14:13:50.081Z",
+        "latencyMs": 1807,
+        "error": null
+      },
+      {
+        "model": "gemini",
+        "answer": "LLM stands for **Large Language Model**.\n\nHere's a breakdown of what that means:\n\n*   **Large:** These models are trained on massive datasets of text and code, often billions or even trillions of tokens (individual words or pieces of words). The sheer scale allows them to learn complex patterns and relationships within language.\n\n*   **Language:** LLMs are designed to understand, generate, and manipulate human language.  They are built and trained to perform a wide variety of language-related tasks.\n\n*   **Model:** In machine learning terms, LLM refers to a statistical model that represents the probabilities of different sequences of words.  It's a complex set of algorithms and parameters that allow the model to make predictions about language.\n\n**In essence, an LLM is a powerful AI model trained on a vast amount of text data to understand and generate human-like text.**\n\n**What can LLMs do?**\n\nLLMs can perform a wide range of tasks, including:\n\n*   **Text Generation:**  Creating new content, such as articles, stories, poems, code, scripts, musical pieces, email, letters, etc.\n*   **Text Summarization:**  Condensing large amounts of text into shorter, more concise summaries.\n*   **Text Translation:**  Converting text from one language to another.\n*   **Question Answering:**  Providing answers to questions based on their knowledge base.\n*   **Chatbots and Conversational AI:**  Engaging in conversations with humans.\n*   **Code Generation:**  Generating code in various programming languages.\n*   **Text Classification:**  Categorizing text into different labels or categories (e.g., spam detection, sentiment analysis).\n*   **Sentiment Analysis:**  Determining the emotional tone of a piece of text.\n*   **Content Creation:** Assisting in writing articles, blog posts, or marketing materials.\n*   **Grammar and Spell Checking:**  Identifying and correcting errors in text.\n\n**Examples of Popular LLMs:**\n\n*   **GPT (Generative Pre-trained Transformer) series (e.g., GPT-3, GPT-4) developed by OpenAI**\n*   **BERT (Bidirectional Encoder Representations from Transformers) developed by Google**\n*   **LaMDA (Language Model for Dialogue Applications) developed by Google**\n*   **PaLM (Pathways Language Model) developed by Google**\n*   **Llama (Large Language Model Meta AI) series developed by Meta AI**\n\n**Key Concepts Related to LLMs:**\n\n*   **Transformer Architecture:**  A neural network architecture that is particularly well-suited for processing sequential data (like text).  Most LLMs are based on the Transformer architecture.\n*   **Pre-training and Fine-tuning:** LLMs are typically pre-trained on a massive dataset of text and then fine-tuned for specific tasks.\n*   **Tokens:**  The basic units of text that LLMs process.  Tokens can be words, parts of words, or even individual characters.\n\n**Limitations:**\n\nWhile LLMs are powerful, they also have limitations:\n\n*   **Bias:** LLMs can inherit biases from the data they are trained on, leading to potentially unfair or discriminatory outputs.\n*   **Hallucinations:**  LLMs can sometimes generate incorrect or nonsensical information, presented as factual.\n*   **Lack of Common Sense:**  LLMs may struggle with tasks requiring common sense reasoning or real-world knowledge.\n*   **Cost:** Training and running LLMs can be computationally expensive.\n*   **Ethical Concerns:** Concerns about the potential for misuse, such as generating fake news or impersonating individuals.\n\nIn summary, LLMs are a significant advancement in artificial intelligence, capable of performing a wide range of language-related tasks. However, it's important to be aware of their limitations and potential risks.",
+        "status": "success",
+        "timestamp": "2026-04-24T14:13:50.081Z",
+        "latencyMs": 7682,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-24T14:14:03.305Z"
+  },
+  {
+    "id": "d26b50e8-1eb1-4d63-8182-f3046eaa83df",
+    "question": "hi how are u",
+    "selectedModels": [
+      "qwen",
+      "llama",
+      "gpt4",
+      "gemini",
+      "deepseek"
+    ],
+    "responses": [
+      {
+        "model": "qwen",
+        "answer": "Hello! I'm doing well, thank you. How can I assist you today?",
+        "status": "success",
+        "timestamp": "2026-04-24T14:10:05.755Z",
+        "latencyMs": 987,
+        "error": null
+      },
+      {
+        "model": "llama",
+        "answer": "I'm doing well, thanks for asking. I'm a large language model, so I don't have feelings or emotions like humans do, but I'm always happy to chat with you and help with any questions or topics you'd like to discuss. How can I assist you today?",
+        "status": "success",
+        "timestamp": "2026-04-24T14:10:05.756Z",
+        "latencyMs": 923,
+        "error": null
+      },
+      {
+        "model": "gpt4",
+        "answer": "Hi! I'm just a program, so I don't have feelings, but I'm here and ready to help you. How can I assist you today?",
+        "status": "success",
+        "timestamp": "2026-04-24T14:10:05.756Z",
+        "latencyMs": 1313,
+        "error": null
+      },
+      {
+        "model": "gemini",
+        "answer": "I am doing well, thank you for asking! How are you today?",
+        "status": "success",
+        "timestamp": "2026-04-24T14:10:05.757Z",
+        "latencyMs": 1619,
+        "error": null
+      },
+      {
+        "model": "deepseek",
+        "answer": "Hello! I'm doing great, thanks for asking. 😊 How can I help you today?",
+        "status": "success",
+        "timestamp": "2026-04-24T14:10:05.757Z",
+        "latencyMs": 2384,
+        "error": null
+      }
+    ],
+    "createdAt": "2026-04-24T14:10:08.143Z"
+  },
+  {
     "id": "0ef6b875-2be8-49e0-9647-ca74b649b38f",
     "question": "difference between a bird and a penguin\n",
     "selectedModels": [
