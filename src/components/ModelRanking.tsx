@@ -9,6 +9,7 @@ import { PentagonComparison, ModelPentagonData, COLORS } from "./PentagonChart";
 
 interface ModelRankingProps {
   responses: ModelResponse[];
+  question?: string;
 }
 
 // ─── Compute 5-Pillar Pentagon scores from a ModelResponse ───────────────────
@@ -74,8 +75,8 @@ function ScoreBar({ score, max = 10 }: { score: number; max?: number }) {
   );
 }
 
-export function ModelRanking({ responses }: ModelRankingProps) {
-  const scores: ModelScore[] = scoreResponses(responses);
+export function ModelRanking({ responses, question }: ModelRankingProps) {
+  const scores: ModelScore[] = scoreResponses(responses, question);
   const allLatencies = responses.filter(r => r.status === "success").map(r => r.latencyMs);
 
   // Build pentagon data for each model
@@ -110,6 +111,7 @@ export function ModelRanking({ responses }: ModelRankingProps) {
                 <th className="px-6 py-4 text-left font-normal">Rank</th>
                 <th className="px-6 py-4 text-left font-normal">Agent</th>
                 <th className="px-6 py-4 text-left font-normal">Context</th>
+                <th className="px-6 py-4 text-left font-normal">Relevance</th>
                 <th className="px-6 py-4 text-left font-normal">Logic</th>
                 <th className="px-6 py-4 text-left font-normal">Velocity</th>
                 <th className="px-6 py-4 text-left font-normal">Cost</th>
@@ -159,8 +161,9 @@ export function ModelRanking({ responses }: ModelRankingProps) {
                     </span>
                   </td>
 
-                  <td className="px-6 py-5 min-w-[120px]"><ScoreBar score={s.reasoningScore} /></td>
-                  <td className="px-6 py-5 min-w-[120px]"><ScoreBar score={s.speedScore} /></td>
+                  <td className="px-6 py-5 min-w-[100px]"><ScoreBar score={s.relevanceScore} /></td>
+                  <td className="px-6 py-5 min-w-[100px]"><ScoreBar score={s.reasoningScore} /></td>
+                  <td className="px-6 py-5 min-w-[100px]"><ScoreBar score={s.speedScore} /></td>
 
                   <td className="px-6 py-5">
                     <span className={cn(
@@ -199,11 +202,13 @@ export function ModelRanking({ responses }: ModelRankingProps) {
 
         <div className="px-6 py-3 bg-black/30 border-t border-white/5 flex items-center justify-between">
           <div className="flex gap-6 text-[8px] font-mono text-gray-700 uppercase">
-            <span>Logic Weight: 65%</span>
+            <span>Relevance: 40%</span>
             <span>•</span>
-            <span>Velocity Weight: 35%</span>
+            <span>Logic: 35%</span>
+            <span>•</span>
+            <span>Velocity: 25%</span>
           </div>
-          <div className="text-[8px] font-mono text-gray-700 italic">HEURISTIC_ENGINE_v2.1</div>
+          <div className="text-[8px] font-mono text-gray-700 italic">HEURISTIC_ENGINE_v3.0 · RELEVANCE_AWARE</div>
         </div>
       </div>
 

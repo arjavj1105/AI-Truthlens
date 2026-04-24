@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { ComparisonRecord } from "./types";
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.VERCEL ? path.join("/tmp", "data") : path.join(process.cwd(), "data");
 const HISTORY_FILE = path.join(DATA_DIR, "history.json");
 
 /**

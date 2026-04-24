@@ -179,7 +179,7 @@ export default function Home() {
               </div>
 
               {/* Phase 3: Benchmarking Dashboard */}
-              <ModelRanking responses={currentRecord.responses} />
+              <ModelRanking responses={currentRecord.responses} question={currentRecord.question} />
             </motion.section>
           )}
         </AnimatePresence>

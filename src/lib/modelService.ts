@@ -1,7 +1,7 @@
 import { ModelResponse, Provider } from "./types";
 
-const TIMEOUT_MS = 30000;
-const MAX_RETRIES = 2;
+const TIMEOUT_MS = 45000;
+const MAX_RETRIES = 3;
 const HF_BASE_URL = "https://router.huggingface.co/v1/chat/completions";
 const OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1/chat/completions";
 
@@ -43,7 +43,18 @@ async function fetchWithRetry(
     try {
       const res = await fetchWithTimeout(url, options);
 
-      // Circuit break on 4xx (client errors) — no point retrying
+      // 429 Rate Limited — retryable with backoff
+      if (res.status === 429 && attempt < retries) {
+        const retryAfter = res.headers.get("retry-after");
+        const waitMs = retryAfter
+          ? Math.min(parseInt(retryAfter, 10) * 1000, 10000)
+          : backoffMs * Math.pow(2, attempt + 1);
+        console.warn(`[${attempt + 1}/${retries}] 429 rate-limited, retrying in ${waitMs}ms…`);
+        await sleep(waitMs);
+        continue;
+      }
+
+      // Circuit break on other 4xx (client errors) — no point retrying
       if (res.status >= 400 && res.status < 500) return res;
 
       // Retry on 5xx (server errors)
